@@ -13,3 +13,8 @@ body {
   text-align: center;
 }
 
+.mainmodule p {
+  text-align: center;
+  margin-top: -10px;
+  color: #bebebe;
+}
