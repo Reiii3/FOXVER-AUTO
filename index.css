@@ -18,3 +18,149 @@ body {
   margin-top: -10px;
   color: #bebebe;
 }
+
+.itemLayout {
+  background-color: #252525;
+  border-radius: 4vw;
+  padding: 4vw;
+  align-items: center;
+  color: #ccc;
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  width: 270px;
+  margin: 50px auto;
+}
+
+.itemLayout i {
+  margin-right: 2vw;
+  color: #ff5503;
+}
+
+.itemLayout p {
+  flex-grow: 1;
+  font-size: 4vw;
+  font-weight: 600;
+}
+
+.switch {
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  display: inline-block;
+  width: 12vw; /* Adjusted width for better appearance */
+  height: 6vw; /* Adjusted height to maintain a good aspect ratio */
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #464646;
+  transition: 0.4s;
+  border-radius: 3vw; /* Adjusted border radius for the slider */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 5.2vw; /* Adjusted height of the slider knob */
+  width: 5.2vw; /* Adjusted width of the slider knob */
+  border-radius: 50%;
+  left: 0.4vw; /* Adjusted position inside the slider */
+  bottom: 0.4vw; /* Adjusted position inside the slider */
+  background-color: #aaa;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #d07710;
+}
+
+input:checked + .slider:before {
+  background-color: white;
+  transform: translateX(
+    5.6vw
+  ); /* Adjusted to move the knob fully to the right */
+}
+
+.itemLayout2 {
+  background-color: #252525;
+  border-radius: 4vw;
+  padding: 4vw;
+  align-items: center;
+  color: #ccc;
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  width: 270px;
+  margin: -20px auto;
+}
+
+.itemLayout2 i {
+  margin-right: 2vw;
+  color: #ff5503;
+}
+
+.itemLayout2 p {
+  flex-grow: 1;
+  font-size: 4vw;
+  font-weight: 600;
+}
+
+.switch {
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  display: inline-block;
+  width: 12vw; /* Adjusted width for better appearance */
+  height: 6vw; /* Adjusted height to maintain a good aspect ratio */
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #464646;
+  transition: 0.4s;
+  border-radius: 3vw; /* Adjusted border radius for the slider */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 5.2vw; /* Adjusted height of the slider knob */
+  width: 5.2vw; /* Adjusted width of the slider knob */
+  border-radius: 50%;
+  left: 0.4vw; /* Adjusted position inside the slider */
+  bottom: 0.4vw; /* Adjusted position inside the slider */
+  background-color: #aaa;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #d07710;
+}
+
+input:checked + .slider:before {
+  background-color: white;
+  transform: translateX(
+    5.6vw
+  ); /* Adjusted to move the knob fully to the right */
+}
