@@ -164,3 +164,7 @@ input:checked + .slider:before {
     5.6vw
   ); /* Adjusted to move the knob fully to the right */
 }
+
+nav {
+  
+}
