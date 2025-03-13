@@ -18,3 +18,4 @@ sleep 1
 pkill -f "/data/local/tmp/ai-system"
 rm -rf "$bin"
 rm -rf "$path"
+rm "/data/local/tmp/ai-system"
