@@ -91,9 +91,9 @@ case $1 in
       echo " └┬[🎮] Game: ${nameGame:-null}"
       echo "  ├[📁] Package: ${packageRun:-null}"
       if pgrep -f ai-system; then
-        echo "  └[📤] AI : Online"
+        echo "  └[🤖] AI : Online"
       else 
-        echo "  └[📤] AI : Offline"
+        echo "  └[🤖] AI : Offline"
       fi
      exit 0
      ;;
