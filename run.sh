@@ -12,13 +12,14 @@ ai="$bin/ai-system"
 if [ ! -f $bin_2 ]; then
   mkdir -p "$bin_2"
 fi
-
+sleep 1
 if [ ! -f $engine ] && [ ! -f $prop ]; then
     storm -rP "$bin" -s "${url_engine}" -fn "engine" "$@"
     sleep 1
     storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
 fi
 sleep 1
+
 . $engine
 . $prop
 
