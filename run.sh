@@ -14,9 +14,9 @@ if [ ! -f $bin_2 ]; then
 fi
 sleep 1
 if [ ! -f "$engine" ] && [ ! -f "$prop" ]; then
-    storm -rP "$bin" -s "${url_engine}" -fn "engine" "$@"
+    storm -rP "$bin_2" -s "${url_engine}" -fn "engine" "$@"
     sleep 1
-    storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
+    storm -rP "$bin_2" -s "${url_prop}" -fn "prop" "$@"
 fi
 sleep 1
 
