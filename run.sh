@@ -88,7 +88,7 @@ case $1 in
       echo " ├[🪪] ID : $AXERONID"
       echo " ├[🆕] Update : 03-15"
       echo " └┬[🎮] Game: $nameGame"
-      echo "  └[📁] Package: $packageRun:-null"
+      echo "  └[📁] Package: $(packageRun:-null)"
      exit 0
      ;;
 esac
