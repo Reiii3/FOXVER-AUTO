@@ -94,7 +94,7 @@ case $1 in
 esac
      
 echo "========================================"
-echo "    Tes AI Auto Render & Performance"
+echo "  FOXVER AI Auto Render & Performance"
 echo "========================================"
 sleep 0.5
 echo "installing AI Please wait..."
