@@ -18,7 +18,7 @@ if [ ! -f $engine ] && [ ! -f $prop ]; then
     sleep 1
     storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
 fi
-
+sleep 1
 . $engine
 . $prop
 
