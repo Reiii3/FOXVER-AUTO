@@ -72,7 +72,7 @@ case $1 in
       nohup sh /data/local/tmp/ai_tes >/dev/null 2>&1 &
       sleep 1
       status2=$(pgrep -f ai_tes)
-      echo "Booting System succes AI Active"
+      echo "Booting System succes"
       am broadcast -a axeron.show.TOAST --es title "BOOTING SYSTEM AI" --es msg "Booting Succesfuly" --ei duration "4000" >/dev/null 2>&1
     fi
      axprop $engine pid_ins -s "$status2"
