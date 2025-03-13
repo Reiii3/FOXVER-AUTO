@@ -39,9 +39,8 @@ case $1 in
         while pgrep -f ai_tes >/dev/null; do
           echo "Menonaktifkan System AI"
           sleep 1
-         done
+        done
        rm "$ai"
-       rm -rf "$path_cash"
        echo "Reboot System succes "
        am broadcast -a axeron.show.TOAST --es title "REBOOT SYSTEM AI" --es msg "SYSTEM AI DOWN" --ei duration "4000" >/dev/null 2>&1
     fi
