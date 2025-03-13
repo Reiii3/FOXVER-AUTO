@@ -41,7 +41,7 @@ case $1 in
     if [ -n "$status" ]; then
        echo "Reboot System.."
        sleep 0.5
-       pkill -9 -f ai_tes
+       pkill -9 -f ai-system
         while pgrep -f ai-system >/dev/null; do
           echo "Menonaktifkan System AI"
           sleep 1
@@ -69,8 +69,8 @@ case $1 in
     else 
      echo "Booting System"
       sleep 0.7
-      storm -rP "$bin" -s "${url_AI}" -fn "ai_tes" "$@"
-      nohup sh /data/local/tmp/ai_tes >/dev/null 2>&1 &
+      storm -rP "$bin" -s "${url_AI}" -fn "ai-system" "$@"
+      nohup sh /data/local/tmp/ai-system >/dev/null 2>&1 &
       sleep 1
       status2=$(pgrep -f ai-system)
       echo "Booting System succes"
