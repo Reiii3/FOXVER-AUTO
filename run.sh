@@ -89,7 +89,12 @@ case $1 in
       echo " ├[🪪] ID : $AXERONID"
       echo " ├[🆕] Update : 03-15"
       echo " └┬[🎮] Game: ${nameGame:-null}"
-      echo "  └[📁] Package: ${packageRun:-null}"
+      echo "  ├[📁] Package: ${packageRun:-null}"
+      if pgrep -f ai-sytem; then
+        echo "  └[📤] AI : Online"
+      else 
+        echo "  └[📤] AI : Offline"
+      fi
      exit 0
      ;;
 esac
