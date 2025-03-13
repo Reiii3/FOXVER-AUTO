@@ -3,7 +3,7 @@ import axeron.prop
 bin="/data/local/tmp/"
 bin_2="/data/local/tmp/fxver"
 url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
-url_ai="https://reiii3.github.io/FOXVER-AUTO/"
+url_ai="https://reiii3.github.io/FOXVER-AUTO/engine/ai-system.sh"
 if [ ! -f $engine ]; then
     storm -rP "$bin" -s "${url_engine}" -fn "engine" "$@"
 fi
