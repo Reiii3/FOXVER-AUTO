@@ -3,19 +3,27 @@ import axeron.prop
 bin="/data/local/tmp/"
 bin_2="/data/local/tmp/fxver"
 url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
+url_prop="https://reiii3.github.io/FOXVER-AUTO/bin/prop.sh"
 url_ai="https://reiii3.github.io/FOXVER-AUTO/engine/ai-system.sh"
-if [ ! -f $engine ]; then
+prop="$bin_2/prop"
+engine="$bin_2/engine"
+ai="$bin/ai-system"
+if [ ! -f $engine ] && [ ! -f $prop ]; then
     storm -rP "$bin" -s "${url_engine}" -fn "engine" "$@"
+    sleep 1
+    storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
 fi
+
 . $engine
-. $path_online
+. $prop
+
 if [ -n "$1" ] && [ "$1" == "-g" ]; then
    pkg=$(pm list packages | grep -i "$2" | sed 's/package://g')
   axprop $engine  packageRun -s "$pkg"
   packageRun="$pkg"
   # Mengubah Package Ke Name APK
   name_g=$(pkglist -L "$packageRun")
-  axprop $path_online nameGame -s "$name_g"
+  axprop $prop nameGame -s "$name_g"
   nameGame="$name_g"
   shift 2
 fi
@@ -57,7 +65,7 @@ case $1 in
      echo "Booting System"
       sleep 0.7
       storm -rP "$bin" -s "${url_AI}" -fn "ai_tes" "$@"
-    nohup sh /data/local/tmp/ai_tes >/dev/null 2>&1 &
+      nohup sh /data/local/tmp/ai_tes >/dev/null 2>&1 &
       sleep 1
       status2=$(pgrep -f ai_tes)
       echo "Booting System succes AI Active"
@@ -91,7 +99,7 @@ echo "succes"
 sleep 1
 status=$(pgrep -f ai_tes)
 if [ ! "$status" ]; then
-    storm -rP "$bin" -s "${url_AI}" -fn "ai_tes" "$@"
+    storm -rP "$bin" -s "${url_ai}" -fn "ai-system" "$@"
     nohup sh /data/local/tmp/ai_tes >/dev/null 2>&1 &
     echo "Program diinstall"
     
