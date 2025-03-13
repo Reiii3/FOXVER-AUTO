@@ -36,13 +36,13 @@ fi
 
 case $1 in 
     -upr | -u )
-    status=$(pgrep -f ai_tes)
+    status=$(pgrep -f ai-system)
     statuss=$(ps -fp $status)
     if [ -n "$status" ]; then
        echo "Reboot System.."
        sleep 0.5
        pkill -9 -f ai_tes
-        while pgrep -f ai_tes >/dev/null; do
+        while pgrep -f ai-system >/dev/null; do
           echo "Menonaktifkan System AI"
           sleep 1
         done
@@ -50,7 +50,7 @@ case $1 in
        echo "Reboot System succes "
        am broadcast -a axeron.show.TOAST --es title "REBOOT SYSTEM AI" --es msg "SYSTEM AI DOWN" --ei duration "4000" >/dev/null 2>&1
     fi
-    status=$(pgrep -f ai_tes)
+    status=$(pgrep -f ai-system)
      sleep 1
      echo
      echo "================================"
@@ -72,7 +72,7 @@ case $1 in
       storm -rP "$bin" -s "${url_AI}" -fn "ai_tes" "$@"
       nohup sh /data/local/tmp/ai_tes >/dev/null 2>&1 &
       sleep 1
-      status2=$(pgrep -f ai_tes)
+      status2=$(pgrep -f ai-system)
       echo "Booting System succes"
       am broadcast -a axeron.show.TOAST --es title "BOOTING SYSTEM AI" --es msg "Booting Succesfuly" --ei duration "4000" >/dev/null 2>&1
     fi
@@ -102,7 +102,7 @@ echo "installing AI Please wait..."
 sleep 1
 echo "succes"
 sleep 1
-status=$(pgrep -f ai_tes)
+status=$(pgrep -f ai-system)
 if [ ! "$status" ]; then
     storm -rP "$bin" -s "${url_ai}" -fn "ai-system" "$@"
     nohup sh /data/local/tmp/ai-system >/dev/null 2>&1 &
@@ -111,7 +111,7 @@ if [ ! "$status" ]; then
 fi
 
 sleep 2
-status=$(pgrep -f ai_tes)
+status=$(pgrep -f ai-system)
 axprop $engine pid_ins "$status"
 pid=$status
 if [ "$status" ]; then
