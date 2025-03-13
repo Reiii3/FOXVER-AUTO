@@ -25,6 +25,7 @@ ai_end() {
 
 . $engine
 . $prop
+
 cmd notification post -S bigtext -t "AI FOXVER" "tag" "ACTIVED AI FOXVER | Developer : ReiiEja"
 sleep 1
 check_game() {
