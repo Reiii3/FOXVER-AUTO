@@ -84,7 +84,7 @@ case $1 in
      -info | -i )
       echo " ┌[📦] $name | INFORMATION"
       echo " ├────────────────────────────"
-      echo " ├[📄] Version : $version | $verc"
+      echo " ├[📄] Version : $vers | $versc"
       echo " ├[🪪] ID : $AXERONID"
       echo " ├[🆕] Update : 03-15"
       echo " └┬[🎮] Game: $nameGame"
