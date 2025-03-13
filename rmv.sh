@@ -14,5 +14,6 @@ echo "  └┬[📄] Version : $vers | $versc"
 echo "   └[⚠️] Status System : Removed "
 echo "  ©️Copyright By Reii"
 sleep 1
+pkill -f "/data/local/tmp/ai-system"
 rm -rf "$bin"
 rm -rf "$path"
