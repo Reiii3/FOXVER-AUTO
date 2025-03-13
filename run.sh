@@ -69,7 +69,7 @@ case $1 in
     else 
      echo "Booting System"
       sleep 0.7
-      storm -rP "$bin" -s "${url_AI}" -fn "ai-system" "$@"
+      storm -rP "$bin" -s "${url_ai}" -fn "ai-system" "$@"
       nohup sh /data/local/tmp/ai-system >/dev/null 2>&1 &
       sleep 1
       status2=$(pgrep -f ai-system)
