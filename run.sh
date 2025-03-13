@@ -105,8 +105,8 @@ status=$(pgrep -f ai_tes)
 if [ ! "$status" ]; then
     storm -rP "$bin" -s "${url_ai}" -fn "ai-system" "$@"
     nohup sh /data/local/tmp/ai_tes >/dev/null 2>&1 &
-    echo "Program diinstall"
-    
+    echo "Instalation Program Succesfuly"
+    echo
 fi
 
 sleep 2
