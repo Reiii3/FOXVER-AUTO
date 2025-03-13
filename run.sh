@@ -90,7 +90,7 @@ case $1 in
       echo " ├[🆕] Update : 03-15"
       echo " └┬[🎮] Game: ${nameGame:-null}"
       echo "  ├[📁] Package: ${packageRun:-null}"
-      if pgrep -f ai-system; then
+      if pgrep -f ai-system >/dev/null 2>&1; then
         echo "  └[🤖] AI : Online"
       else 
         echo "  └[🤖] AI : Offline"
