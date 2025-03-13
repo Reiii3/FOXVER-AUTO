@@ -8,6 +8,11 @@ url_ai="https://reiii3.github.io/FOXVER-AUTO/engine/ai-system.sh"
 prop="$bin_2/prop"
 engine="$bin_2/engine"
 ai="$bin/ai-system"
+
+if [ ! -f $bin_2 ]; then
+  mkdir -p "$bin_2"
+fi
+
 if [ ! -f $engine ] && [ ! -f $prop ]; then
     storm -rP "$bin" -s "${url_engine}" -fn "engine" "$@"
     sleep 1
