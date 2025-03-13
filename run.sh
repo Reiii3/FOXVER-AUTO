@@ -54,7 +54,7 @@ case $1 in
      echo
      echo "================================"
      echo "  ┌[📦] $name | UP PACKAGE" 
-     echo "  └┬[📁] Package : $packageRun"
+     echo "  └┬[📁] Package : ${packageRun:-null}"
      if [ -z $status ]; then
        echo "   └[📊] Status System : Reboot[🔄]"
      else
@@ -87,8 +87,8 @@ case $1 in
       echo " ├[📄] Version : $vers | $versc"
       echo " ├[🪪] ID : $AXERONID"
       echo " ├[🆕] Update : 03-15"
-      echo " └┬[🎮] Game: $nameGame"
-      echo "  └[📁] Package: $(packageRun:-null)"
+      echo " └┬[🎮] Game: ${nameGame:-null}"
+      echo "  └[📁] Package: ${packageRun:-null}"
      exit 0
      ;;
 esac
