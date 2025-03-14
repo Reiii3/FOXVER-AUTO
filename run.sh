@@ -20,7 +20,7 @@ if [ ! -f "$engine" ] && [ ! -f "$prop" ] && [ ! -f $function ]; then
     sleep 1
     storm -rP "$bin_2" -s "${url_prop}" -fn "prop" "$@"
     sleep 1
-    strom -rP "$bin_2" -s "${url_fun}" -fn "function" "$@"
+    storm -rP "$bin_2" -s "${url_fun}" -fn "function" "$@"
 fi
 sleep 1
 
