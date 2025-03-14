@@ -5,6 +5,8 @@ bin_2="/data/local/tmp/fxver"
 url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
 url_prop="https://reiii3.github.io/FOXVER-AUTO/bin/prop.sh"
 url_ai="https://reiii3.github.io/FOXVER-AUTO/engine/ai-system.sh"
+url_fun="https://reiii3.github.io/Center-Module/core-system/function.sh"
+export function="$bin_2/function"
 prop="$bin_2/prop"
 engine="$bin_2/engine"
 ai="$bin/ai-system"
@@ -13,15 +15,18 @@ if [ ! -f $bin_2 ]; then
   mkdir -p "$bin_2"
 fi
 sleep 1
-if [ ! -f "$engine" ] && [ ! -f "$prop" ]; then
+if [ ! -f "$engine" ] && [ ! -f "$prop" ] && [ ! -f $function ]; then
     storm -rP "$bin_2" -s "${url_engine}" -fn "engine" "$@"
     sleep 1
     storm -rP "$bin_2" -s "${url_prop}" -fn "prop" "$@"
+    sleep 1
+    strom -rP "$bin_2" -s "${url_fun}" -fn "function" "$@"
 fi
 sleep 1
 
 . $engine
 . $prop
+. $function
 
 if [ -n "$1" ] && [ "$1" == "-g" ]; then
    pkg=$(pm list packages | grep -i "$2" | sed 's/package://g')
@@ -83,7 +88,7 @@ case $1 in
      exit 0
      ;;
      -info | -i )
-      echo " ┌[📦] $name | INFORMATION"
+      printer " ┌[📦] $name | INFORMATION"
       echo " ├────────────────────────────"
       echo " ├[📄] Version : $vers | $versc"
       echo " ├[🪪] ID : $AXERONID"
