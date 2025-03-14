@@ -90,15 +90,15 @@ case $1 in
      -info | -i )
       printer " ┌[📦] $name | INFORMATION"
       echo " ├────────────────────────────"
-      printf " ├[📄] Version : $vers | $versc"
-      echo " ├[🪪] ID : $AXERONID"
-      echo " ├[🆕] Update : 03-15"
-      echo " └┬[🎮] Game: ${nameGame:-null}"
-      echo "  ├[📁] Package: ${packageRun:-null}"
+      printer " ├[📄] Version : $vers | $versc"
+      printer " ├[🪪] ID : $AXERONID"
+      printer " ├[🆕] Update : 03-15"
+      printer " └┬[🎮] Game: ${nameGame:-null}"
+      printer "  ├[📁] Package: ${packageRun:-null}"
       if pgrep -f ai-system >/dev/null 2>&1; then
-        echo "  └[🤖] AI : Online"
+        printer "  └[🤖] AI : Online"
       else 
-        echo "  └[🤖] AI : Offline"
+        printer "  └[🤖] AI : Offline"
       fi
      exit 0
      ;;
@@ -116,8 +116,7 @@ status=$(pgrep -f ai-system)
 if [ ! "$status" ]; then
     storm -rP "$bin" -s "${url_ai}" -fn "ai-system" "$@"
     nohup sh /data/local/tmp/ai-system >/dev/null 2>&1 &
-    echo "Instalation Program Succesfuly"
-    echo
+    printer "Instalation Program Succesfuly"
 fi
 
 sleep 2
@@ -125,7 +124,7 @@ status=$(pgrep -f ai-system)
 axprop $engine pid_ins "$status"
 pid=$status
 if [ "$status" ]; then
-    echo "${ORANGE}Program berhasil terpasang${END}"
+    printer "${ORANGE}Program berhasil terpasang${END}"
     am broadcast -a axeron.show.TOAST --es title "AI TESss" --es msg "Developer : henpeex vBETA" --ei duration "4000" >/dev/null 2>&1
 else
     echo "Program failed: gagal"
