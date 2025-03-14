@@ -3,6 +3,7 @@ import axeron.prop
 bin="/data/local/tmp/fxver"
 path="/data/locla/tmp/axeron_cash/FOX"
 prop="$bin/prop"
+function="$bin/function"
 
 . $prop
 . $function
