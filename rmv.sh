@@ -8,7 +8,7 @@ prop="$bin/prop"
 . $function
 
 echo "=========================="
-echo "  $name | AI REMOVED"
+printer "  $name | AI REMOVED"
 echo "=========================="
 sleep 1
 echo "  ┌[📦] Remove Modules System"
