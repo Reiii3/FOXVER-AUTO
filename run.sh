@@ -11,11 +11,11 @@ prop="$bin_2/prop"
 engine="$bin_2/engine"
 ai="$bin/ai-system"
 
-if [ ! -f $bin_2 ]; then
+if [ ! -d $bin_2 ]; then
   mkdir -p "$bin_2"
 fi
 sleep 1
-if [ ! -f "$engine" ] && [ ! -f "$prop" ] && [ ! -f $function ]; then
+if [ ! -f "$engine" ] && [ ! -f "$prop" ] && [ ! -f "$function" ]; then
     storm -rP "$bin_2" -s "${url_engine}" -fn "engine" "$@"
     sleep 1
     storm -rP "$bin_2" -s "${url_prop}" -fn "prop" "$@"
