@@ -90,7 +90,7 @@ case $1 in
      -info | -i )
       printer " ┌[📦] $name | INFORMATION"
       echo " ├────────────────────────────"
-      echo " ├[📄] Version : $vers | $versc"
+      printf " ├[📄] Version : $vers | $versc"
       echo " ├[🪪] ID : $AXERONID"
       echo " ├[🆕] Update : 03-15"
       echo " └┬[🎮] Game: ${nameGame:-null}"
