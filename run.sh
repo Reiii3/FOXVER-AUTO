@@ -124,7 +124,7 @@ status=$(pgrep -f ai-system)
 axprop $engine pid_ins "$status"
 pid=$status
 if [ "$status" ]; then
-    printer "${ORANGE}Program berhasil terpasang${END}"
+    echo "${ORANGE}Program berhasil terpasang${END}"
     am broadcast -a axeron.show.TOAST --es title "AI TESss" --es msg "Developer : henpeex vBETA" --ei duration "4000" >/dev/null 2>&1
 else
     echo "Program failed: gagal"
