@@ -10,7 +10,8 @@ notif_run=""
 ai_start() {
     cmd settings put system high_performance_mode_on 0
     sleep 0.5
-    setprop debug.hwui.renderer skiavk 
+    setprop debug.hwui.renderer skiavk
+    setprop debug.hwui.shadow.renderer skiavk
     cmd settings put system high_performance_mode_on 1
     cmd settings put system high_performance_mode_on_when_shutdown 1
     cmd thermalservice override-status 0
@@ -19,6 +20,7 @@ ai_start() {
 
 ai_end() {
     setprop debug.hwui.renderer opengl
+    setprop debug.hwui.shadow.renderer opengl
     cmd settings put system high_performance_mode_on 0
     cmd settings put system high_performance_mode_on_when_shutdown 0
     cmd thermalservice override-status 1
