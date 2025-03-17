@@ -42,6 +42,7 @@ render_detected=$(getprop debug.hwui.renderer)
         fi
         if [ "$notif_run" != "run" ]; then
             cmd notification post -S bigtext -t "FOXVER AI" "game_log" "AI GAME RUNNING : $nameGame | Actived Performance"
+            am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Actived" --ei duration "3000"
             notif_run="run"
         fi
         echo
