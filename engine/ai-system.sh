@@ -59,6 +59,7 @@ render_detected=$(getprop debug.hwui.renderer)
 
         if [ "$notif_run" != "stop" ]; then
             cmd notification post -S bigtext -t "FOXVER AI" "game_log" "AI GAME CLOSED | Deactived Performance"
+            am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Deactived" --ei duration "3000"
             notif_run="stop"
         fi
         echo
