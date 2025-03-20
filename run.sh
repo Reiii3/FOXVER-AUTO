@@ -115,6 +115,9 @@ printer "  FOXVER AI Auto Render & Performance"
 echo "======================================="
 printer "$in This Information In Modules exec:
     ax fox -i"
+printer "$in This Instalation In Modules Exec:
+    ax fox -c"
+echo
 sleep 0.5
 if $cek_oppo; then
   echo "$in Special Performance Supported"
