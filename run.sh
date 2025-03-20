@@ -114,7 +114,7 @@ echo "======================================="
 printer "  FOXVER AI Auto Render & Performance"
 echo "======================================="
 echo "┌$in This Information In Modules exec:
-└┬$pr ax fox -i"
+  └┬$pr ax fox -i"
     
 printer "$in This Instalation In Modules Exec:
     ax fox -c"
