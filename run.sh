@@ -132,8 +132,10 @@ fi
 
 sleep 2
 status=$(pgrep -f ai-system)
-axprop $engine pid_ins "$status"
-pid=$status
+if [ -z $pid_ins ]; then
+  axprop $engine pid_ins "$status"
+  pid=$status
+fi
 if [ "$status" ]; then
     echo "${ORANGE}$su Program berhasil terpasang${END}"
     am broadcast -a axeron.show.TOAST --es title "FOXVER Instaled" --es msg "Developer : Reii" --ei duration "4000" >/dev/null 2>&1
