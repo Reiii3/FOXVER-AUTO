@@ -1,7 +1,6 @@
 $AXFUN
 import axeron.prop
 IDLE_TIME=5
-cek_oppo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
 bin="/data/local/tmp/fxver"
 engine="$bin/engine"
 prop="$bin/prop"
