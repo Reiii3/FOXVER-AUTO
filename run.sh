@@ -111,8 +111,10 @@ case $1 in
 esac
      
 echo "======================================="
-echo "  FOXVER AI Auto Render & Performance"
+printer "  FOXVER AI Auto Render & Performance"
 echo "======================================="
+printer "$in This Information In Modules exec:
+    ax fox -i"
 sleep 0.5
 if $cek_oppo; then
   echo "$in Special Performance Supported"
