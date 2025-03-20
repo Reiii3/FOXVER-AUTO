@@ -113,10 +113,9 @@ esac
 echo "======================================="
 printer "  FOXVER AI Auto Render & Performance"
 echo "======================================="
-echo "┌$in This Information In Modules exec:
+printer "┌$in This Information In Modules exec:
   └┬$pr ax fox -i
   ┌┴$pr ax fox --info"
-    
 printer "├$in This Instalation In Modules Exec:
   └─$pr ax fox -c"
 echo
