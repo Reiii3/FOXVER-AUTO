@@ -1,15 +1,16 @@
 $AXFUN
 import axeron.prop
-bin="/data/local/tmp/"
-bin_2="/data/local/tmp/fxver"
-url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
-url_prop="https://reiii3.github.io/FOXVER-AUTO/bin/prop.sh"
-url_ai="https://reiii3.github.io/FOXVER-AUTO/engine/ai-system.sh"
-url_fun="https://reiii3.github.io/Center-Module/core-system/function.sh"
-function="$bin_2/function"
-prop="$bin_2/prop"
-engine="$bin_2/engine"
-ai="$bin/ai-system"
+local bin="/data/local/tmp/"
+local bin_2="/data/local/tmp/fxver"
+local url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
+local url_prop="https://reiii3.github.io/FOXVER-AUTO/bin/prop.sh"
+local url_ai="https://reiii3.github.io/FOXVER-AUTO/engine/ai-system.sh"
+local url_fun="https://reiii3.github.io/Center-Module/core-system/function.sh"
+local function="$bin_2/function"
+local prop="$bin_2/prop"
+local engine="$bin_2/engine"
+local ai="$bin/ai-system"
+local cek_oppo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
 
 if [ ! -d $bin_2 ]; then
   mkdir -p "$bin_2"
@@ -39,12 +40,17 @@ if [ -n "$1" ] && [ "$1" == "-g" ]; then
   shift 2
 fi
 
+local war="[?]"
+local in="[!]"
+local pr="[-]"
+local su="[✔]"
+
 case $1 in 
     -upr | -u )
     status=$(pgrep -f ai-system)
     statuss=$(ps -fp $status)
     if [ -n "$status" ]; then
-       echo "Reboot System.."
+       echo "$in Reboot System.."
        sleep 0.5
        pkill -9 -f ai-system
         while pgrep -f ai-system >/dev/null; do
@@ -52,7 +58,7 @@ case $1 in
           sleep 1
         done
        rm "$ai"
-       echo "Reboot System succes "
+       echo "$su Reboot System succes "
        am broadcast -a axeron.show.TOAST --es title "REBOOT SYSTEM AI" --es msg "SYSTEM AI DOWN" --ei duration "4000" >/dev/null 2>&1
     fi
     status=$(pgrep -f ai-system)
@@ -70,15 +76,15 @@ case $1 in
      echo
      sleep 2
     if [ "$status" = "$pid_ins" ]; then
-      echo "Instalation gagal"
+      echo "$in Instalation gagal"
     else 
-     echo "Booting System"
+     echo "$pr Booting System"
       sleep 0.7
       storm -rP "$bin" -s "${url_ai}" -fn "ai-system" "$@"
       nohup sh /data/local/tmp/ai-system >/dev/null 2>&1 &
       sleep 1
       status2=$(pgrep -f ai-system)
-      echo "Booting System succes"
+      echo "$su Booting System succes"
       am broadcast -a axeron.show.TOAST --es title "BOOTING SYSTEM AI" --es msg "Booting Succesfuly" --ei duration "4000" >/dev/null 2>&1
     fi
      axprop $engine pid_ins -s "$status2"
@@ -108,15 +114,20 @@ echo "======================================="
 echo "  FOXVER AI Auto Render & Performance"
 echo "======================================="
 sleep 0.5
-echo "installing AI Please wait..."
+if $cek_oppo; then
+  echo "$in Special Performance Supported"
+else
+  echo "$in Special Performance Not Supported"
+fi
+echo "$pr installing AI System Please wait..."
 sleep 1
-echo "succes"
+echo "$su succes"
 sleep 1
 status=$(pgrep -f ai-system)
 if [ ! "$status" ]; then
     storm -rP "$bin" -s "${url_ai}" -fn "ai-system" "$@"
     nohup sh /data/local/tmp/ai-system >/dev/null 2>&1 &
-    printer "Instalation Program Succesfuly"
+    printer "$in Instalation Program Succesfuly"
 fi
 
 sleep 2
@@ -124,8 +135,8 @@ status=$(pgrep -f ai-system)
 axprop $engine pid_ins "$status"
 pid=$status
 if [ "$status" ]; then
-    echo "${ORANGE}Program berhasil terpasang${END}"
-    am broadcast -a axeron.show.TOAST --es title "AI TESss" --es msg "Developer : henpeex vBETA" --ei duration "4000" >/dev/null 2>&1
+    echo "${ORANGE}$su Program berhasil terpasang${END}"
+    am broadcast -a axeron.show.TOAST --es title "FOXVER Instaled" --es msg "Developer : Reii" --ei duration "4000" >/dev/null 2>&1
 else
-    echo "Program failed: gagal"
+    echo "$war Program failed: gagal"
 fi
