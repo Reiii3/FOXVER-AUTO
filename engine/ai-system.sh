@@ -7,6 +7,9 @@ prop="$bin/prop"
 gamerun=""
 notif_run=""
 
+. $engine
+. $prop
+
 ai_start() {
     setprop debug.hwui.renderer skiavk
     setprop debug.hwui.shadow.renderer skiavk
@@ -30,9 +33,6 @@ ai_end() {
     cmd thermalservice override-status 1
     sleep 1
 }
-
-. $engine
-. $prop
 
 cmd notification post -S bigtext -t "AI FOXVER" "tag" "ACTIVED AI FOXVER | Developer : ReiiEja"
 sleep 1
