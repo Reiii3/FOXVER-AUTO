@@ -114,11 +114,11 @@ echo "======================================="
 printer "  FOXVER AI Auto Render & Performance"
 echo "======================================="
 printer "┌$in This Information In Modules exec:
-  └┬$pr ax fox -i
-  ┌┴$pr ax fox --info"
+└┬$pr ax fox -i
+┌┴$pr ax fox --info"
 printer "├$in This Instalation In Modules Exec:
-  ├─$pr ax fox -c
-  └─$pr ax fox -changelogs"
+├─$pr ax fox -c
+└─$pr ax fox -changelogs"
 echo
 sleep 0.5
 if $cek_oppo; then
