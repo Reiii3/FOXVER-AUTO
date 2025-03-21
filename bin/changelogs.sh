@@ -13,9 +13,8 @@ local war="[?]"
 . $engine
 
 echo "┌$ax $name | Changelogs V1.0"
-echo "└┐
-┌┘"
-echo "├$in AI Automaticaly Peformance in game"
-echo "├$in Render SkiaVk Priority"
-echo "├$in Gpu & Cpu Balance Performance"
-echo "└$in Fast-Conect To Server Modules"
+echo "└┐$war Information In Uodate $vers"
+echo " ├$in AI Automaticaly Peformance in game"
+echo " ├$in Render SkiaVk Priority"
+echo " ├$in Gpu & Cpu Balance Performance"
+echo " └$in Fast-Conect To Server Modules"
