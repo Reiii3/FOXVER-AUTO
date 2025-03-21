@@ -41,12 +41,12 @@ sleep 1
 check_game() {
 detected_apps=$(dumpsys window | grep -E 'mCurrentFocus|mFocusedApp' | grep -o "$packageRun")
 render_detected=$(getprop debug.hwui.renderer)
-perfo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
+perfo1=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
 . $prop
     if [ -n "$detected_apps" ]; then
         if [ "$gamerun" != "running" ] || [ "$render_detected" != "skiavk" ]; then
             ai_start
-            if $perfo; then
+            if [ "$perfo" = true ]; then
               ai_op
             fi
             gamerun="running"
@@ -65,7 +65,7 @@ perfo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_
     else
         if [ "$gamerun" != "stopped" ] || [ "$render_detected" != "opengl" ]; then
             ai_end
-            if $perfo; then
+            if [ "$perfo" = true ]; then
               ai_op_r
             fi
             gamerun="stopped"
