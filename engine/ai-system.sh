@@ -13,23 +13,25 @@ notif_run=""
 ai_start() {
     setprop debug.hwui.renderer skiavk
     setprop debug.hwui.shadow.renderer skiavk
-    if [ $perfo = true]; then
-      cmd settings put system high_performance_mode_on 0
-      sleep 0.5
-      cmd settings put system high_performance_mode_on 1
-      cmd settings put system high_performance_mode_on_when_shutdown 1
-    fi
     cmd thermalservice override-status 0
     sleep 0.5
+}
+
+ai_op() {
+  cmd settings put system high_performance_mode_on 0
+  sleep 0.5
+  cmd settings put system high_performance_mode_on 1
+  cmd settings put system high_performance_mode_on_when_shutdown 1
+}
+
+ai_op_r() {
+  cmd settings put system high_performance_mode_on 0
+  cmd settings put system high_performance_mode_on_when_shutdown 0
 }
 
 ai_end() {
     setprop debug.hwui.renderer opengl
     setprop debug.hwui.shadow.renderer opengl
-    if [ $perfo = true ]; then
-      cmd settings put system high_performance_mode_on 0
-      cmd settings put system high_performance_mode_on_when_shutdown 0
-    fi
     cmd thermalservice override-status 1
     sleep 1
 }
@@ -39,9 +41,13 @@ sleep 1
 check_game() {
 detected_apps=$(dumpsys window | grep -E 'mCurrentFocus|mFocusedApp' | grep -o "$packageRun")
 render_detected=$(getprop debug.hwui.renderer)
+perfo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
     if [ -n "$detected_apps" ]; then
         if [ "$gamerun" != "running" ] || [ "$render_detected" != "skiavk" ]; then
             ai_start
+            if [ $perfo = true ]; then
+              ai_op
+            fi
             gamerun="running"
         fi
         if [ "$notif_run" != "run" ]; then
@@ -58,6 +64,9 @@ render_detected=$(getprop debug.hwui.renderer)
     else
         if [ "$gamerun" != "stopped" ] || [ "$render_detected" != "opengl" ]; then
             ai_end
+            if [ $perfo = true ]; then
+              ai_op_r
+            fi
             gamerun="stopped"
         fi
 
