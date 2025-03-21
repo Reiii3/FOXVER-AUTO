@@ -37,11 +37,11 @@ maintenx
 
 case $1 in
    -dev_on )
-    axprop $main dev_mode -s "true"
+    axprop $engine dev_mode -s "true"
     dev_mode=true
     ;;
    -dev_off )
-    axprop $main dev_mode -s "false"
+    axprop $engine dev_mode -s "false"
     dev_mode=false
     ;;
 esac
