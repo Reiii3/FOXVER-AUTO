@@ -37,9 +37,9 @@ sleep 1
 . $prop
 . $function
 maintenx
-local cek_ui=$(storm "https://reiii3.github.io/FOXVER-AI/engine/user/beta_ui.txt")
+local cek_ui=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_ui.txt")
 local cek_beta_ui=$(echo "$cek_ui" | grep -q "$AXERONID" && echo true || echo false)
-local cek_akses=$(storm "https://reiii3.github.io/FOXVER-AI/engine/user/beta_akses.txt")
+local cek_akses=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_akses.txt")
 local cek_beta_akses=$(echo "$cek_akses" | grep -q "$AXERONID" && echo true || echo false)
 
 if [ -n "$1" ] && [ "$1" == "-g" ]; then
