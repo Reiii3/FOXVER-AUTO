@@ -13,6 +13,7 @@ local function="$bin_2/function"
 local prop="$bin_2/prop"
 local engine="$bin_2/engine"
 local ai="$bin/ai-system"
+local main="$bin_2/main"
 local cek_oppo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
 
 if [ ! -d $bin_2 ]; then
@@ -28,11 +29,11 @@ if [ ! -f "$engine" ] && [ ! -f "$prop" ] && [ ! -f "$function" ]; then
 fi
 storm -rP "$bin_2" -s "${url_main}" -fn "main" "$@"
 sleep 1
-
+. $main
 . $engine
 . $prop
 . $function
-
+maintenx
 if [ -n "$1" ] && [ "$1" == "-g" ]; then
    pkg=$(pm list packages | grep -i "$2" | sed 's/package://g')
   axprop $engine  packageRun -s "$pkg"
@@ -117,7 +118,10 @@ case $1 in
      exit 0
      ;;
 esac
-     
+if [ $sys_main = true ]; then
+  storm -x "$url_maintenance" "maintenance" "$@"
+  exit 0
+fi
 echo "======================================="
 printer "  FOXVER AI Auto Render & Performance"
 echo "======================================="
