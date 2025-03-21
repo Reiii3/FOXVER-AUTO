@@ -34,9 +34,23 @@ sleep 1
 . $prop
 . $function
 maintenx
+
+case $1 in
+   -dev_on )
+    axprop $main dev_mode -s "true"
+    dev_mode=true
+    ;;
+   -dev_off )
+    axprop $main dev_mode -s "false"
+    dev_mode=false
+    ;;
+esac
+
 local cek_ui=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_ui.txt")
 local cek_beta_ui=$(echo "$cek_ui" | grep -q "$AXERONID" && echo true || echo false)
-local cek_akses=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_akses.txt")
+if [ $dev_mode = true ]; then
+  local cek_akses=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_akses.txt")
+fi
 local cek_beta_akses=$(echo "$cek_akses" | grep -q "$AXERONID" && echo true || echo false)
 
 if [ -n "$1" ] && [ "$1" == "-g" ]; then
