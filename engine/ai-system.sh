@@ -45,7 +45,7 @@ perfo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_
     if [ -n "$detected_apps" ]; then
         if [ "$gamerun" != "running" ] || [ "$render_detected" != "skiavk" ]; then
             ai_start
-            if [ $perfo = true ]; then
+            if $perfo; then
               ai_op
             fi
             gamerun="running"
@@ -64,7 +64,7 @@ perfo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_
     else
         if [ "$gamerun" != "stopped" ] || [ "$render_detected" != "opengl" ]; then
             ai_end
-            if [ $perfo = true ]; then
+            if $perfo; then
               ai_op_r
             fi
             gamerun="stopped"
