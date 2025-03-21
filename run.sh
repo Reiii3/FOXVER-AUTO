@@ -29,11 +29,17 @@ if [ ! -f "$engine" ] && [ ! -f "$prop" ] && [ ! -f "$function" ]; then
 fi
 storm -rP "$bin_2" -s "${url_main}" -fn "main" "$@"
 sleep 1
+
 . $main
 . $engine
 . $prop
 . $function
 maintenx
+local cek_ui=$(storm "https://reiii3.github.io/FOXVER-AI/engine/beta_ui.txt")
+local cek_beta_ui=$(echo "$cek_ui" | grep -q "$AXERONID" && echo true || echo false)
+local cek_akses=$(storm "https://reiii3.github.io/FOXVER-AI/engine/beta_akses.txt")
+local cek_beta_akses=$(echo "$cek_akses" | grep -q "$AXERONID" && echo true || echo false)
+
 if [ -n "$1" ] && [ "$1" == "-g" ]; then
    pkg=$(pm list packages | grep -i "$2" | sed 's/package://g')
   axprop $engine  packageRun -s "$pkg"
@@ -118,51 +124,60 @@ case $1 in
      exit 0
      ;;
 esac
-if [ $sys_main = true ]; then
-  storm -x "$url_maintenance" "maintenance" "$@"
-  exit 0
-fi
-echo "======================================="
-printer "  FOXVER AI Auto Render & Performance"
-echo "======================================="
-printer "┌$in This Information In Modules exec:
-└┬$pr ax fox -i
- └$pr ax fox -info"
-printer "┌$in This Instalation In Modules Exec:
-└┬$pr ax fox -c
- └$pr ax fox -changelogs"
- printer "┌$pr This Reboot System AI In Modules exec:
-└┬$pr ax fox -u
- └$pr ax fox -upr"
-echo
-sleep 0.5
-if $cek_oppo; then
-  echo "$in Special Performance Supported"
-  axprop $engine perfo "true"
-  perfo=true
-else
-  echo "$in Special Performance Not Supported"
-fi
-echo "$pr installing AI System Please wait..."
-sleep 1
-echo "$su succes"
-sleep 1
-status=$(pgrep -f ai-system)
-if [ ! "$status" ]; then
-    storm -rP "$bin" -s "${url_ai}" -fn "ai-system" "$@"
-    nohup sh /data/local/tmp/ai-system >/dev/null 2>&1 &
-    printer "$in Instalation Program Succesfuly"
+if
+if [ $cek_beta_akses != true ]; then
+  if [ $sys_main = true ]; then
+    storm -x "$url_maintenance" "maintenance" "$@"
+    exit 0
+  fi
 fi
 
-sleep 2
-status=$(pgrep -f ai-system)
-if [ -z $pid_ins ]; then
-  axprop $engine pid_ins "$status"
-  pid=$status
-fi
-if [ "$status" ]; then
-    echo "${ORANGE}$su Program berhasil terpasang${END}"
-    am broadcast -a axeron.show.TOAST --es title "FOXVER Instaled" --es msg "Developer : Reii" --ei duration "4000" >/dev/null 2>&1
+
+if [ $cek_beta_ui != true ]; then
+  echo "======================================="
+  printer "  FOXVER AI Auto Render & Performance"
+  echo "======================================="
+  printer "┌$in This Information In Modules exec:
+  └┬$pr ax fox -i
+   └$pr ax fox -info"
+  printer "┌$in This Instalation In Modules Exec:
+  └┬$pr ax fox -c
+   └$pr ax fox -changelogs"
+   printer "┌$pr This Reboot System AI In Modules exec:
+  └┬$pr ax fox -u
+   └$pr ax fox -upr"
+  echo
+  sleep 0.5
+  if $cek_oppo; then
+    echo "$in Special Performance Supported"
+    axprop $engine perfo "true"
+    perfo=true
+  else
+    echo "$in Special Performance Not Supported"
+  fi
+  echo "$pr installing AI System Please wait..."
+  sleep 1
+  echo "$su succes"
+  sleep 1
+  status=$(pgrep -f ai-system)
+  if [ ! "$status" ]; then
+      storm -rP "$bin" -s "${url_ai}" -fn "ai-system" "$@"
+      nohup sh /data/local/tmp/ai-system >/dev/null 2>&1 &
+      printer "$in Instalation Program Succesfuly"
+  fi
+  
+  sleep 2
+  status=$(pgrep -f ai-system)
+  if [ -z $pid_ins ]; then
+    axprop $engine pid_ins "$status"
+    pid=$status
+  fi
+  if [ "$status" ]; then
+      echo "${ORANGE}$su Program berhasil terpasang${END}"
+      am broadcast -a axeron.show.TOAST --es title "FOXVER Instaled" --es msg "Developer : Reii" --ei duration "4000" >/dev/null 2>&1
+  else
+      echo "$war Program failed: gagal"
+  fi
 else
-    echo "$war Program failed: gagal"
+  echo "Tess Beta UI"
 fi
