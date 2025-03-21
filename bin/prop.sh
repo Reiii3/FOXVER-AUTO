@@ -1,7 +1,7 @@
 vers="1.0"
 versc=10
-descript="BETA AI"
+beta_vers="1.1"
+beta_versc=11
+descript="Foxver AI [New Logic Update Online]"
 dev="Reii"
-update=""
-maintenance=""
 nameGame=""
