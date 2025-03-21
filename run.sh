@@ -37,12 +37,12 @@ maintenx
 
 case $1 in
    -dev_on | -don )
-    axprop $engine dev_mode -s "true"
+    axprop $engine dev_mode -s true
     dev_mode=true
     echo "Welcome Devoloper"
     ;;
    -dev_off | -dof )
-    axprop $engine dev_mode -s "false"
+    axprop $engine dev_mode -s false
     dev_mode=false
     echo "See You Developer"
     ;;
