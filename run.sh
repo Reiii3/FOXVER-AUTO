@@ -6,6 +6,9 @@ local url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
 local url_prop="https://reiii3.github.io/FOXVER-AUTO/bin/prop.sh"
 local url_ai="https://reiii3.github.io/FOXVER-AUTO/engine/ai-system.sh"
 local url_fun="https://reiii3.github.io/Center-Module/core-system/function.sh"
+local url_change="https://reiii3.github.io/FOXVER-AUTO/bin/changelogs.sh"
+local url_maintenance="https://reiii3.github.io/FOXVER-AUTO/bin/maintenance.sh"
+local url_main="https://reiii3.github.io/FOXVER-AUTO/engine/engine_main.sh"
 local function="$bin_2/function"
 local prop="$bin_2/prop"
 local engine="$bin_2/engine"
@@ -23,6 +26,7 @@ if [ ! -f "$engine" ] && [ ! -f "$prop" ] && [ ! -f "$function" ]; then
     sleep 1
     storm -rP "$bin_2" -s "${url_fun}" -fn "function" "$@"
 fi
+storm -rP "$bin_2" -s "${url_main}" -fn "main" "$@"
 sleep 1
 
 . $engine
@@ -106,6 +110,10 @@ case $1 in
       else 
         printer "  └[🤖] AI : Offline"
       fi
+     exit 0
+     ;;
+     -changelogs | -c )
+     storm -x "$url_change" "changelogs" "$@"
      exit 0
      ;;
 esac
