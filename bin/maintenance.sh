@@ -26,4 +26,5 @@ printer "  - New Function  "
 printer "  - Add New Code  "
 printer "  - Fix Logic Modules  "
 printer "  - System Modules Update  "
+printer "  - AI Sensix Free Fire "
 echo
