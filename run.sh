@@ -1,12 +1,10 @@
 $AXFUN
 import axeron.prop
-local bin="/data/local/tmp/"
 local bin_2="/data/local/tmp/fxver"
 local url_ui_full="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/ui_full.sh"
 local url_ui_beta="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/beta_ui.sh"
 local url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
 local url_prop="https://reiii3.github.io/FOXVER-AUTO/bin/prop.sh"
-local url_ai="https://reiii3.github.io/FOXVER-AUTO/engine/ai-system.sh"
 local url_fun="https://reiii3.github.io/Center-Module/core-system/function.sh"
 local url_change="https://reiii3.github.io/FOXVER-AUTO/bin/changelogs.sh"
 local url_maintenance="https://reiii3.github.io/FOXVER-AUTO/bin/maintenance.sh"
@@ -16,7 +14,6 @@ local prop="$bin_2/prop"
 local engine="$bin_2/engine"
 local ai="$bin/ai-system"
 local main="$bin_2/main"
-local cek_oppo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
 
 if [ ! -d $bin_2 ]; then
   mkdir -p "$bin_2"
@@ -53,10 +50,7 @@ if [ -n "$1" ] && [ "$1" == "-g" ]; then
   shift 2
 fi
 
-local war="[?]"
-local in="[!]"
-local pr="[-]"
-local su="[✔]"
+
 
 case $1 in 
     -upr | -u )
