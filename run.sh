@@ -47,8 +47,9 @@ case $1 in
     echo "See You Developer"
     ;;
 esac
-
-local cek_ui=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_ui.txt")
+if [ $dev_mode = true ]; then
+  local cek_ui=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_ui.txt")
+fi
 local cek_beta_ui=$(echo "$cek_ui" | grep -q "$AXERONID" && echo true || echo false)
 if [ $dev_mode = true ]; then
   local cek_akses=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_akses.txt")
