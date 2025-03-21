@@ -1,3 +1,18 @@
+$AXFUN
+import axeron.prop
+local url_ai="https://reiii3.github.io/FOXVER-AUTO/engine/ai-system.sh"
+local bin="/data/local/tmp/"
+local function="$bin_2/function"
+local prop="$bin_2/prop"
+local engine="$bin_2/engine"
+local ai="$bin/ai-system"
+local cek_oppo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
+
+local war="[?]"
+local in="[!]"
+local pr="[-]"
+local su="[✔]"
+
 echo "======================================="
 printer "  FOXVER AI Auto Render & Performance"
 echo "======================================="
