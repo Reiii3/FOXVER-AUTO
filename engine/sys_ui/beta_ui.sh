@@ -1,4 +1,5 @@
 $AXFUN
+import axeron.prop
 local function="$bin_2/function"
 local prop="$bin_2/prop"
 local engine="$bin_2/engine"
