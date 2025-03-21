@@ -13,6 +13,10 @@ local in="[!]"
 local pr="[-]"
 local su="[✔]"
 
+. $prop
+. $engine
+. $function
+
 echo "======================================="
 printer "  FOXVER AI Auto Render & Performance"
 echo "======================================="
