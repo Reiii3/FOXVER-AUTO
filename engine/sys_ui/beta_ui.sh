@@ -1,5 +1,6 @@
 $AXFUN
 import axeron.prop
+local bin_2="/data/local/tmp/fxver"
 local function="$bin_2/function"
 local prop="$bin_2/prop"
 local engine="$bin_2/engine"
