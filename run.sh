@@ -36,13 +36,15 @@ sleep 1
 maintenx
 
 case $1 in
-   -dev_on )
+   -dev_on | -don )
     axprop $engine dev_mode -s "true"
     dev_mode=true
+    echo "Welcome Devoloper"
     ;;
-   -dev_off )
+   -dev_off | -dof )
     axprop $engine dev_mode -s "false"
     dev_mode=false
+    echo "See You Developer"
     ;;
 esac
 
