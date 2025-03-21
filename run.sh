@@ -1,6 +1,7 @@
 $AXFUN
 import axeron.prop
 local bin_2="/data/local/tmp/fxver"
+local bin="/data/local/tmp"
 local url_ui_full="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/ui_full.sh"
 local url_ui_beta="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/beta_ui.sh"
 local url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
@@ -9,6 +10,7 @@ local url_fun="https://reiii3.github.io/Center-Module/core-system/function.sh"
 local url_change="https://reiii3.github.io/FOXVER-AUTO/bin/changelogs.sh"
 local url_maintenance="https://reiii3.github.io/FOXVER-AUTO/bin/maintenance.sh"
 local url_main="https://reiii3.github.io/FOXVER-AUTO/engine/engine_main.sh"
+local url_ai="https://reiii3.github.io/FOXVER-AUTO/engine/ai-system.sh"
 local function="$bin_2/function"
 local prop="$bin_2/prop"
 local engine="$bin_2/engine"
