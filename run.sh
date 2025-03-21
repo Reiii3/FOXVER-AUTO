@@ -68,7 +68,8 @@ fi
 
 
 
-case $1 in 
+case $1 in
+# -upr adalah fungsi untuk merestart ulang ai agar dapat menjalankan game yang baru di tambahkan
     -upr | -u )
     status=$(pgrep -f ai-system)
     statuss=$(ps -fp $status)
