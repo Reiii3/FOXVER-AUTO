@@ -69,7 +69,10 @@ if [ -n "$1" ] && [ "$1" == "-g" ]; then
   shift 2
 fi
 
-
+local war="[?]"
+local in="[!]"
+local pr="[-]"
+local su="[✔]"
 
 case $1 in
 # -upr adalah fungsi untuk merestart ulang ai agar dapat menjalankan game yang baru di tambahkan
@@ -92,12 +95,12 @@ case $1 in
      sleep 1
      echo
      echo "================================"
-     echo "  ┌[📦] $name | UP PACKAGE" 
-     echo "  └┬[📁] Package : ${packageRun:-null}"
+     echo " ┌[📦] $name | UP PACKAGE" 
+     echo " └┬[📁] Package : ${packageRun:-null}"
      if [ -z $status ]; then
-       echo "   └[📊] Status System : Reboot[🔄]"
+       echo "  └[📊] Status System : Reboot[🔄]"
      else
-       echo "   └[📊] Status System : '$status'"
+       echo "  └[📊] Status System : '$status'"
      fi
      echo "================================"
      echo
