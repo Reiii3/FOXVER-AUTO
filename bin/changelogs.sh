@@ -13,7 +13,7 @@ local war="[?]"
 . $engine
 
 echo "┌$ax $name | Changelogs V1.0"
-echo "└┐$war Information In Uodate $vers"
+echo "└┐$war Information In Uodate V$vers"
 echo " ├$in AI Automaticaly Peformance in game"
 echo " ├$in Render SkiaVk Priority"
 echo " ├$in Gpu & Cpu Balance Performance"
