@@ -124,7 +124,6 @@ case $1 in
      exit 0
      ;;
 esac
-if
 
 if [ "$cek_beta_akses" != true ]; then
   if [ "$sys_main" = true ]; then
