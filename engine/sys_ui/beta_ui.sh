@@ -1,3 +1,18 @@
+$AXFUN
+local function="$bin_2/function"
+local prop="$bin_2/prop"
+local engine="$bin_2/engine"
+local cek_oppo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
+
+local war="[?]"
+local in="[!]"
+local pr="[-]"
+local su="[✔]"
+
+. $prop
+. $engine
+. $function
+
 echo "======================================="
 printer "  FOXVER AI Auto Render & Performance"
 printer "              [Beta]"
