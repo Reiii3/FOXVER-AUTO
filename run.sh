@@ -125,6 +125,7 @@ case $1 in
      ;;
 esac
 if
+
 if [ $cek_beta_akses != true ]; then
   if [ $sys_main = true ]; then
     storm -x "$url_maintenance" "maintenance" "$@"
