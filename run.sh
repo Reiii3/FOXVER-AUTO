@@ -114,6 +114,8 @@ case $1 in
       printer "  ├[📁] Package: ${packageRun:-null}"
       if pgrep -f ai-system >/dev/null 2>&1; then
         printer "  └[🤖] AI : Online"
+      elif [ $sys_main = true ]; then
+        printer "  └[🤖] AI : Maintenance"
       else 
         printer "  └[🤖] AI : Offline"
       fi
