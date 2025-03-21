@@ -2,6 +2,8 @@ $AXFUN
 import axeron.prop
 local bin="/data/local/tmp/"
 local bin_2="/data/local/tmp/fxver"
+local url_ui_full="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/ui_full.sh"
+local url_ui_beta="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/beta_ui.sh"
 local url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
 local url_prop="https://reiii3.github.io/FOXVER-AUTO/bin/prop.sh"
 local url_ai="https://reiii3.github.io/FOXVER-AUTO/engine/ai-system.sh"
@@ -136,7 +138,9 @@ fi
 
 
 if [ $cek_beta_ui != true ]; then
+  storm -x "$url_ui_full" "ui_full" "$@"
   echo "UI Akses Tess"
 else
+  storm -x "$url_ui_beta" "beta_ui" "$@"
   echo "UI Beta Tesss"
 fi
