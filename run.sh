@@ -120,7 +120,7 @@ if [ "$cek_beta_akses" != true ]; then
   if [ "$sys_main" = true ]; then
     storm -x "$url_maintenance" "maintenance" "$@"
     echo "Akses : $cek_beta_akses"
-    rm "$bin_cash/maintenance"
+    rm "$bin_cash/respone"
     exit 0
   fi
 fi
