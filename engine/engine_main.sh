@@ -1,3 +1,3 @@
 maintenx() {
-  sys_main=false
+  sys_main=true
 }
