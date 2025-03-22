@@ -111,7 +111,7 @@ case $1 in
      ;;
      -changelogs | -c )
      storm -x "$url_change" "changelogs" "$@"
-     rm "$bin_cash/changelogs"
+     rm "$bin_cash/respone"
      exit 0
      ;;
 esac
