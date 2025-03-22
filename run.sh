@@ -60,13 +60,13 @@ case $1 in
    ui_mod=false
    ;;
 esac
-if [ $dev_mode = true ]; then
+if [ $ui_mod = false ]; then
   local cek_ui=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_ui.txt")
 fi
-local cek_beta_ui=$(echo "$cek_ui" | grep -q "$AXERONID" && echo true || echo false)
 if [ $dev_mode = true ]; then
   local cek_akses=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_akses.txt")
 fi
+local cek_beta_ui=$(echo "$cek_ui" | grep -q "$AXERONID" && echo true || echo false)
 local cek_beta_akses=$(echo "$cek_akses" | grep -q "$AXERONID" && echo true || echo false)
 
 if [ -n "$1" ] && [ "$1" == "-g" ]; then
