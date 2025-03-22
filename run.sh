@@ -51,6 +51,16 @@ case $1 in
     echo "See You Developer"
     ;;
 esac
+case $1 in
+   -ui_realeas | -ur )
+   axprop $engine ui_mod -s true
+   ui_mod=true
+   ;;
+   ui_beta | -ut )
+   axprop $engine ui_mod -s false
+   ui_mod=false
+   ;;
+esac
 if [ $dev_mode = true ]; then
   local cek_ui=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_ui.txt")
 fi
@@ -101,6 +111,7 @@ case $1 in
      ;;
      -changelogs | -c )
      storm -x "$url_change" "changelogs" "$@"
+     rm "$bin_cash/changelogs"
      exit 0
      ;;
 esac
