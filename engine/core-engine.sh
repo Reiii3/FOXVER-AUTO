@@ -2,6 +2,7 @@ wak_up=""
 wak_end=""
 wake=""
 dev_mode=false
+ui_mod=true
 pid_ins=""
 perfo=
 render=""
