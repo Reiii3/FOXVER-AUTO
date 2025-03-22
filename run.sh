@@ -89,7 +89,7 @@ case $1 in
 # -upr adalah fungsi untuk merestart ulang ai agar dapat menjalankan game yang baru di tambahkan
     -upr | -u )
      storm -x "$url_ai_reboot" "reboot" "$@"
-     rm "$bin_cash/respone"
+     rm "$bin_cash/response"
      exit 0
      ;;
      -info | -i )
@@ -111,7 +111,7 @@ case $1 in
      ;;
      -changelogs | -c )
      storm -x "$url_change" "changelogs" "$@"
-     rm "$bin_cash/respone"
+     rm "$bin_cash/response"
      exit 0
      ;;
 esac
@@ -120,7 +120,7 @@ if [ "$cek_beta_akses" != true ]; then
   if [ "$sys_main" = true ]; then
     storm -x "$url_maintenance" "maintenance" "$@"
     echo "Akses : $cek_beta_akses"
-    rm "$bin_cash/respone"
+    rm "$bin_cash/response"
     exit 0
   fi
 fi
