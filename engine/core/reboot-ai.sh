@@ -1,3 +1,17 @@
+$AXFUN
+import axeron.prop
+local bin="/data/local/tmp"
+local bin_2="/data/local/tmp/fxver"
+local url_ai="https://reiii3.github.io/FOXVER-AUTO/engine/core/ai-system.sh"
+local ai="$bin/ai-system"
+local engine="$bin_2/engine"
+. $engine
+
+local war="[?]"
+local in="[!]"
+local pr="[-]"
+local su="[✔]"
+
   status=$(pgrep -f ai-system)
     statuss=$(ps -fp $status)
     if [ -n "$status" ]; then
