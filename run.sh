@@ -89,7 +89,7 @@ case $1 in
 # -upr adalah fungsi untuk merestart ulang ai agar dapat menjalankan game yang baru di tambahkan
     -upr | -u )
      storm -x "$url_ai_reboot" "reboot" "$@"
-     rm "$bin_cash/reboot"
+     rm "$bin_cash/respone"
      exit 0
      ;;
      -info | -i )
