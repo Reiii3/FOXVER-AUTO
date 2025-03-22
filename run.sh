@@ -2,6 +2,7 @@ $AXFUN
 import axeron.prop
 local bin_2="/data/local/tmp/fxver"
 local bin="/data/local/tmp"
+local bin_cash="/data/local/tmp/axeron_cash/FOX"
 local url_ui_full="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/ui_full.sh"
 local url_ui_beta="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/beta_ui.sh"
 local url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
@@ -78,7 +79,8 @@ local su="[✔]"
 case $1 in
 # -upr adalah fungsi untuk merestart ulang ai agar dapat menjalankan game yang baru di tambahkan
     -upr | -u )
-    
+     storm -x "$url_ai_reboot" "reboot" "$@"
+     rm "$bin_cash/reboot"
      ;;
      -info | -i )
       printer " ┌[📦] $name | INFORMATION"
@@ -107,6 +109,7 @@ if [ "$cek_beta_akses" != true ]; then
   if [ "$sys_main" = true ]; then
     storm -x "$url_maintenance" "maintenance" "$@"
     echo "Akses : $cek_beta_akses"
+    rm "$bin_cash/maintenance"
     exit 0
   fi
 fi
