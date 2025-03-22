@@ -11,7 +11,6 @@ local url_fun="https://reiii3.github.io/Center-Module/core-system/function.sh"
 local url_change="https://reiii3.github.io/FOXVER-AUTO/bin/changelogs.sh"
 local url_maintenance="https://reiii3.github.io/FOXVER-AUTO/bin/maintenance.sh"
 local url_main="https://reiii3.github.io/FOXVER-AUTO/engine/engine_main.sh"
-local url_ai="https://reiii3.github.io/FOXVER-AUTO/engine/core/ai-system.sh"
 local url_ai_reboot="https://reiii3.github.io/FOXVER-AUTO/engine/core/reboot-ai.sh"
 local function="$bin_2/function"
 local prop="$bin_2/prop"
@@ -91,6 +90,7 @@ case $1 in
     -upr | -u )
      storm -x "$url_ai_reboot" "reboot" "$@"
      rm "$bin_cash/reboot"
+     exit 0
      ;;
      -info | -i )
       printer " ┌[📦] $name | INFORMATION"
