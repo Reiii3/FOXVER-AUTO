@@ -21,13 +21,13 @@ local su="[✔]"
 echo "======================================="
 printer "  FOXVER AI Auto Render & Performance"
 echo "======================================="
-printer "┌$in This Information In Modules exec:
+printer "┌$in To view module information do:
 └┬$pr ax fox -i
  └$pr ax fox -info"
-printer "┌$in This Instalation In Modules Exec:
+printer "┌$in For how to install, execute it:
 └┬$pr ax fox -c
  └$pr ax fox -changelogs"
- printer "┌$pr This Reboot System AI In Modules exec:
+ printer "┌$pr To reboot the AI system, execute the following:
 └┬$pr ax fox -u
  └$pr ax fox -upr"
 echo
