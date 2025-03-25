@@ -41,8 +41,10 @@ case $1 in
     -update )
     if [ $beta_vers != $vers ] && [ $beta_versc != $versc ]; then
     echo "updating system"
+    exit 0
     elif [ $beta_vers != $vers ] && [ $beta_versc != $versc ]; then
     echo "Sytem Sudah Ter update"
+    exit 0
     fi
     ;;
 esac
