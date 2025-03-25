@@ -37,7 +37,15 @@ sleep 1
 . $prop
 . $function
 maintenx
-
+case $1 in
+    -update )
+    if [ $beta_vers != $vers ] && [ $beta_versc != $versc ]; then
+    echo "updating system"
+    elif [ $beta_vers != $vers ] && [ $beta_versc != $versc ]; then
+    echo "Sytem Sudah Ter update"
+    fi
+    ;;
+esac
 case $1 in
    -dev_on | -don )
     axprop $engine dev_mode -s true
