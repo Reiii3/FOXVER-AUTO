@@ -14,12 +14,14 @@ local url_main="https://reiii3.github.io/FOXVER-AUTO/engine/engine_main.sh"
 local url_ai_reboot="https://reiii3.github.io/FOXVER-AUTO/engine/core/reboot-ai.sh"
 local url_detect="https://reiii3.github.io/Center-Module/update/fox-update.sh"
 local function="$bin_2/function"
+local detected+"$bin_2/detec"
 local prop="$bin_2/prop"
 local engine="$bin_2/engine"
 local ai="$bin/ai-system"
 local main="$bin_2/main"
 
-storm -rP "$bin_2" -s "${url_detect}" "$@"
+storm -rP "$bin_2" -s "${url_detect}" -fn "detec" "$@"
+. $detected
 if [ $detected = true ]; then
    rm -rf $bin_2
 fi
