@@ -12,12 +12,18 @@ local url_change="https://reiii3.github.io/FOXVER-AUTO/bin/changelogs.sh"
 local url_maintenance="https://reiii3.github.io/FOXVER-AUTO/bin/maintenance.sh"
 local url_main="https://reiii3.github.io/FOXVER-AUTO/engine/engine_main.sh"
 local url_ai_reboot="https://reiii3.github.io/FOXVER-AUTO/engine/core/reboot-ai.sh"
+local url_detect="https://reiii3.github.io/Center-Module/update/fox-update.sh"
 local function="$bin_2/function"
 local prop="$bin_2/prop"
 local engine="$bin_2/engine"
 local ai="$bin/ai-system"
 local main="$bin_2/main"
 
+storm -rP "$bin_2" -s "${url_detect}" "$@"
+if [ $detected = true ]; then
+   rm -rf $bin_2
+fi
+sleep 1
 if [ ! -d $bin_2 ]; then
   mkdir -p "$bin_2"
 fi
@@ -28,9 +34,9 @@ if [ ! -f "$engine" ] && [ ! -f "$prop" ] && [ ! -f "$function" ]; then
     storm -rP "$bin_2" -s "${url_prop}" -fn "prop" "$@"
     sleep 1
     storm -rP "$bin_2" -s "${url_fun}" -fn "function" "$@"
+    storm -rP "$bin_2" -s "${url_main}" -fn "main" "$@"
+    sleep 1
 fi
-storm -rP "$bin_2" -s "${url_main}" -fn "main" "$@"
-sleep 1
 
 . $main
 . $engine
