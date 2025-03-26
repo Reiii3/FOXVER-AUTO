@@ -56,7 +56,7 @@ case $1 in
     vers=$beta_vers
     axprop $prop versc -s "$beta_versc"
     versc=$beta_versc
-    sleeo 2
+    sleep 2
     printer "Upsate succesfuly"
     echo "==================="
     printer "  information New"
