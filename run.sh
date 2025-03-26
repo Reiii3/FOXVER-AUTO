@@ -66,7 +66,7 @@ case $1 in
     printer " - VersionCode : $versc New"
     exit 0
     elif [ $beta_vers != $vers ] && [ $beta_versc != $versc ]; then
-    echo "Sytem sudah versi yang terbaru"
+    echo "Modules sudah versi yang terbaru"
     exit 0
     fi
     ;;
