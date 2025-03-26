@@ -55,7 +55,7 @@ case $1 in
     sys_main=false 
     axprop $prop vers -s "$beta_vers"
     vers=$beta_vers
-    axprop $prop versc -s "$beta_vers"
+    axprop $prop versc -s "$beta_versc"
     versc=$beta_versc
     sleeo 2
     printer "Upsate succesfuly"
