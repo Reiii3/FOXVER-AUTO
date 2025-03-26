@@ -51,6 +51,19 @@ case $1 in
     -update )
     if [ $beta_vers != $vers ] && [ $beta_versc != $versc ]; then
     echo "updating system"
+    axprop $main sys_main -s false
+    sys_main=false 
+    axprop $prop vers -s "$beta_vers"
+    vers=$beta_vers
+    axprop $prop versc -s "$beta_vers"
+    versc=$beta_versc
+    sleeo 2
+    printer "Upsate succesfuly"
+    echo "==================="
+    printer "  information New"
+    echo "==================="
+    printer " - version : $vers New"
+    printer " - VersionCode : $versc New"
     exit 0
     elif [ $beta_vers != $vers ] && [ $beta_versc != $versc ]; then
     echo "Sytem Sudah Ter update"
