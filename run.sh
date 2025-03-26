@@ -22,8 +22,11 @@ local main="$bin_2/main"
 
 storm -rP "$bin_2" -s "${url_detect}" -fn "detec" "$@"
 . $detected
+
 if [ $foxUpdate = true ]; then
-   rm -rf $bin_2
+  if [ -f $bin_2 ]; then
+    rm -rf $bin_2
+  fi
 fi
 sleep 1
 if [ ! -d $bin_2 ]; then
