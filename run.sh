@@ -45,7 +45,8 @@ fi
 . $engine
 . $prop
 . $function
-maintenx
+maintenx 
+
 case $1 in
     -update )
     if [ $beta_vers != $vers ] && [ $beta_versc != $versc ]; then
