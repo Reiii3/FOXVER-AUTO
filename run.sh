@@ -20,7 +20,7 @@ local engine="$bin_2/engine"
 local ai="$bin/ai-system"
 local main="$bin_2/main"
 
-storm -rP "$bin_2" -s "${url_detect}" -fn "detec" "$@"
+storm -rP "$bin" -s "${url_detect}" -fn "detec" "$@"
 . $detected
 
 if [ $foxUpdate = true ]; then
