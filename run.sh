@@ -45,7 +45,6 @@ fi
 . $engine
 . $prop
 . $function
-maintenx 
 
 case $1 in
     -update )
