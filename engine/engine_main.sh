@@ -1,3 +1,1 @@
-maintenx() {
-  sys_main=true
-}
+sys_main=true
