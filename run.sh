@@ -76,31 +76,33 @@ fi
 
 case $1 in
     -update )
-    if [ $beta_vers != $vers ] && [ $beta_versc != $versc ]; then
-    echo "updating system"
-    axprop $main sys_main -s false
-    sys_main=false 
-    axprop $prop vers -s "$beta_vers"
-    vers=$beta_vers
-    axprop $prop versc -s "$beta_versc"
-    versc=$beta_versc
-    sleep 2
-    printer "Update succesfuly"
-    echo "==================="
-    printer "  information New"
-    echo "==================="
-    printer " - version : $vers New"
-    printer " - VersionCode : $versc New"
-    axprop $cek_update update_fox -s "done"
-    update_fox="done"
-    axprop $cek_update versUpdate -s "$beta_vers"
-    versUpdate="$beta_vers"
-    axprop $cek_update verscUpdate -s "$beta_versc"
-    verscUpdate=$beta_versc
-    exit 0
-    elif [ $beta_vers = $vers ] && [ $beta_versc = $versc ]; then
-    echo "Modules sudah versi yang terbaru"
-    exit 0
+    if [ $foxUpdate = false ]; then
+      if [ $beta_vers != $vers ] && [ $beta_versc != $versc ]; then
+        echo "updating system"
+        axprop $main sys_main -s false
+        sys_main=false 
+        axprop $prop vers -s "$beta_vers"
+        vers=$beta_vers
+        axprop $prop versc -s "$beta_versc"
+        versc=$beta_versc
+        sleep 2
+        printer "Update succesfuly"
+        echo "==================="
+        printer "  information New"
+        echo "==================="
+        printer " - version : $vers New"
+        printer " - VersionCode : $versc New"
+        axprop $cek_update update_fox -s "done"
+        update_fox="done"
+        axprop $cek_update versUpdate -s "$beta_vers"
+        versUpdate="$beta_vers"
+        axprop $cek_update verscUpdate -s "$beta_versc"
+        verscUpdate=$beta_versc
+        exit 0
+        elif [ $beta_vers = $vers ] && [ $beta_versc = $versc ]; then
+        echo "Modules sudah versi yang terbaru"
+        exit 0
+      fi
     fi
     ;;
 esac
