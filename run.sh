@@ -66,7 +66,7 @@ case $1 in
     if [ ! -d "$bin_cash/zupdate_cek"]; then
       mkdir -p "$bin_cash/zupdate_cek"
     fi
-    echo "updated=done" > "$bin_cash/zupdate_cek/update.txt"
+    echo "updated_fox=done" > "$bin_cash/zupdate_cek/update.txt"
     exit 0
     elif [ $beta_vers = $vers ] && [ $beta_versc = $versc ]; then
     echo "Modules sudah versi yang terbaru"
