@@ -106,6 +106,7 @@ case $1 in
       fi
     else 
      echo "Tunggu maintenance selesai, silahkan pantau perkembangan"
+     echo
     fi
     ;;
 esac
