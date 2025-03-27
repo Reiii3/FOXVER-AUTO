@@ -3,6 +3,7 @@ import axeron.prop
 local bin_2="/data/local/tmp/fxver"
 local bin="/data/local/tmp"
 local bin_cash="/data/local/tmp/axeron_cash/FOX"
+local bin_cek_update="$bin_cash/zupdate_cek"
 local url_ui_full="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/ui_full.sh"
 local url_ui_beta="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/beta_ui.sh"
 local url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
@@ -19,6 +20,7 @@ local prop="$bin_2/prop"
 local engine="$bin_2/engine"
 local ai="$bin/ai-system"
 local main="$bin_2/main"
+local cek_update="$bin_cek_update/update"
 
 storm -rP "$bin" -s "${url_detect}" -fn "detec" "$@"
 . $detected
@@ -45,6 +47,7 @@ fi
 . $engine
 . $prop
 . $function
+. $cek_update
 
 case $1 in
     -update )
