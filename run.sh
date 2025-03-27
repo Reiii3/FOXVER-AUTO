@@ -2,9 +2,9 @@ $AXFUN
 import axeron.prop
 local bin_2="/data/local/tmp/fxver"
 local bin="/data/local/tmp"
-local bin_cash="/data/local/tmp/axeron_cash/"
+
 local bin_cash_fox="/data/local/tmp/axeron_cash/FOX"
-local bin_cek_update="$bin_cash/zupdate_cek"
+local bin_cek_update="$bin_cash_fox/zupdate_cek"
 local url_ui_full="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/ui_full.sh"
 local url_ui_beta="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/beta_ui.sh"
 local url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
@@ -132,7 +132,7 @@ case $1 in
 # -upr adalah fungsi untuk merestart ulang ai agar dapat menjalankan game yang baru di tambahkan
     -upr | -u )
      storm -x "$url_ai_reboot" "reboot" "$@"
-     rm "$bin_cash/response"
+     rm "$bin_cash_fox/response"
      exit 0
      ;;
      -info | -i )
@@ -154,7 +154,7 @@ case $1 in
      ;;
      -changelogs | -c )
      storm -x "$url_change" "changelogs" "$@"
-     rm "$bin_cash/response"
+     rm "$bin_cash_fox/response"
      exit 0
      ;;
 esac
@@ -168,7 +168,7 @@ if [ "$cek_beta_akses" != true ]; then
     else
     echo "Waktu Update : Tunggu Maintenance selesaii"
     fi
-    rm "$bin_cash/response"
+    rm "$bin_cash_fox/response"
     exit 0
   fi
 fi
