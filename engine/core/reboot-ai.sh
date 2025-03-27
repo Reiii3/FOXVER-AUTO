@@ -13,7 +13,9 @@ local pr="[-]"
 local su="[✔]"
 
   status=$(pgrep -f ai-system)
-    statuss=$(ps -fp $status) >/dev/null 2>&1
+  if [ -n $status ]; then
+    statuss=$(ps -fp $status)
+  fi
     if [ -n "$status" ]; then
        echo "$in Reboot System.."
        sleep 0.5
