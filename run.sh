@@ -137,9 +137,9 @@ fi
 if [ -f $cek_update ]; then
    axprop $main sys_main -s false
    sys_main=false 
-   axprop $prop vers -s "$beta_vers"
+   axprop $prop vers -s "$versUodate"
    vers=$versUpdate
-   axprop $prop versc -s "$beta_versc"
+   axprop $prop versc -s "$verscUodate"
    versc=$verscUodate
 fi
 
