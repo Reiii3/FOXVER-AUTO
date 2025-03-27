@@ -193,7 +193,7 @@ if [ "$cek_beta_akses" != true ]; then
     storm -x "$url_maintenance" "maintenance" "$@"
     echo "Akses : $cek_beta_akses"
     if [ $foxUpdate = false ]; then
-    echo "Waktu Update : Silahkan update"
+    echo "Waktu Update : update terbaru sudah ada"
     else
     echo "Waktu Update : Tunggu Maintenance selesaii"
     fi
