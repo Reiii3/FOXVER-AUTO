@@ -29,18 +29,22 @@ storm -rP "$bin" -s "${url_detect}" -fn "detec" "$@"
 if [ ! -d "$bin_cash/zupdate_cek" ]; then
   mkdir -p "$bin_cash/zupdate_cek"
 fi
+
 if [ ! -f $cek_update ]; then
   echo "[Don't Change It]" > "$bin_cash/zupdate_cek/update"
+  sleep 2
   axprop $cek_update update_fox -s "maintenance"
   update_fox="maintenance"
   axprop $cek_update versUpdate -s "null"
   versUpdate="null"
-  axprop $cek_update verscUpdate -s "null"
+  axprop $cek_update verscUpdate -s null
   verscUpdate=null
 fi
+
 if [ -f $cek_update ]; then
   . $cek_update
 fi
+
 if [ $foxUpdate = true ]; then
   if [ -f $bin_2 ]; then
     rm -rf $bin_2
@@ -48,11 +52,15 @@ if [ $foxUpdate = true ]; then
     update_fox="maintenance"
   fi
 fi
+
 sleep 1
+
 if [ ! -d $bin_2 ]; then
   mkdir -p "$bin_2"
 fi
+
 sleep 1
+
 if [ ! -f "$engine" ] && [ ! -f "$prop" ] && [ ! -f "$function" ]; then
     storm -rP "$bin_2" -s "${url_engine}" -fn "engine" "$@"
     storm -rP "$bin_2" -s "${url_prop}" -fn "prop" "$@"
