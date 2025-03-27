@@ -133,14 +133,15 @@ local su="[✔]"
 if [ -d $bin_cek_update ]; then
   . $cek_update
 fi
-
-if [ -f $cek_update ]; then
-   axprop $main sys_main -s false
-   sys_main=false 
-   axprop $prop vers -s "$versUodate"
-   vers=$versUpdate
-   axprop $prop versc -s "$verscUodate"
-   versc=$verscUodate
+if [ $update_fox = done ]; then
+  if [ -f $cek_update ]; then
+     axprop $main sys_main -s false
+     sys_main=false 
+     axprop $prop vers -s "$versUodate"
+     vers=$versUpdate
+     axprop $prop versc -s "$verscUodate"
+     versc=$verscUodate
+  fi
 fi
 
 case $1 in
