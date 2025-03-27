@@ -70,8 +70,8 @@ case $1 in
       mkdir -p "$bin_cash/zupdate_cek"
     fi
     echo "updated_fox="done"
-    versUpdate="$beta_vers"
-    vesrcUpdate=$beta_versc" > "$bin_cash/zupdate_cek/update"
+versUpdate="$beta_vers"
+vesrcUpdate=$beta_versc" > "$bin_cash/zupdate_cek/update"
     exit 0
     elif [ $beta_vers = $vers ] && [ $beta_versc = $versc ]; then
     echo "Modules sudah versi yang terbaru"
