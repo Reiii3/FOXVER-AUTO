@@ -99,7 +99,7 @@ case $1 in
         axprop $cek_update verscUpdate -s "$beta_versc"
         verscUpdate=$beta_versc
         exit 0
-        elif [ $beta_vers = $vers ] && [ $beta_versc = $versc ]; then
+      elif [ $beta_vers = $vers ] && [ $beta_versc = $versc ]; then
         echo "Modules sudah versi yang terbaru"
         exit 0
       fi
