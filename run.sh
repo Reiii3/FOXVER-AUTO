@@ -134,6 +134,15 @@ if [ -d $bin_cek_update ]; then
   . $cek_update
 fi
 
+if [ -f $cek_update ]; then
+   axprop $main sys_main -s false
+   sys_main=false 
+   axprop $prop vers -s "$beta_vers"
+   vers=$versUpdate
+   axprop $prop versc -s "$beta_versc"
+   versc=$verscUodate
+fi
+
 case $1 in
 # -upr adalah fungsi untuk merestart ulang ai agar dapat menjalankan game yang baru di tambahkan
     -upr | -u )
