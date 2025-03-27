@@ -122,6 +122,7 @@ local war="[?]"
 local in="[!]"
 local pr="[-]"
 local su="[✔]"
+
 if [ -d $bin_cek_update ]; then
   . $cek_update
 fi
