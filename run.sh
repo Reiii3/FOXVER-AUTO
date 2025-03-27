@@ -68,9 +68,6 @@ case $1 in
     echo "==================="
     printer " - version : $vers New"
     printer " - VersionCode : $versc New"
-    if [ ! -d "$bin_cash/zupdate_cek" ]; then
-      mkdir -p "$bin_cash/zupdate_cek"
-    fi
     echo "" > "$bin_cash/zupdate_cek/update"
     axprop $cek_update update_fox -s "done"
     update_fox="done"
