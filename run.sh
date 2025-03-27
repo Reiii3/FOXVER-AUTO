@@ -36,7 +36,7 @@ if [ ! -f $cek_update ]; then
   axprop $cek_update versUpdate -s "null"
   versUpdate="null"
   axprop $cek_update verscUodate -s "null"
-  verscUodate="null"
+  verscUodate=null
 fi
 if [ -f $cek_update ]; then
   . $cek_update
