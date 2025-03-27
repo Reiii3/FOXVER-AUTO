@@ -41,9 +41,7 @@ if [ ! -f $cek_update ]; then
   verscUpdate=null
 fi
 
-if [ -f $cek_update ]; then
-  . $cek_update
-fi
+. $cek_update
 
 if [ $foxUpdate = true ]; then
   if [ -f $bin_2 ]; then
@@ -157,9 +155,8 @@ local in="[!]"
 local pr="[-]"
 local su="[✔]"
 
-if [ -d $bin_cek_update ]; then
-  . $cek_update
-fi
+. $cek_update
+
 if [ $update_fox = "done" ]; then
 echo "update berhasil"
   if [ -f $cek_update ]; then
