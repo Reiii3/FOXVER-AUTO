@@ -50,6 +50,7 @@ if [ $foxUpdate = true ]; then
     rm -rf $bin_2
     axprop $cek_update update_fox -s "maintenance"
     update_fox="maintenance"
+    echo "Tes Pengapdetan"
   fi
 fi
 
@@ -157,6 +158,7 @@ if [ -d $bin_cek_update ]; then
   . $cek_update
 fi
 if [ $update_fox = "done" ]; then
+echo "update berhasil"
   if [ -f $cek_update ]; then
      axprop $main sys_main -s false
      sys_main=false 
