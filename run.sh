@@ -31,7 +31,7 @@ if [ ! -d "$bin_cash/zupdate_cek" ]; then
 fi
 
 if [ ! -f $cek_update ]; then
-  echo "[Don't Change It]" > "$bin_cash/zupdate_cek/update"
+  echo "[Dont Change It]" > "$bin_cash/zupdate_cek/update"
   sleep 2
   axprop $cek_update update_fox -s "maintenance"
   update_fox="maintenance"
