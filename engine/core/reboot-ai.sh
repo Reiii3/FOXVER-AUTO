@@ -25,6 +25,9 @@ local su="[✔]"
        rm "$ai"
        echo "$su Reboot System succes "
        am broadcast -a axeron.show.TOAST --es title "REBOOT SYSTEM AI" --es msg "SYSTEM AI DOWN" --ei duration "4000" >/dev/null 2>&1
+     else 
+       echo "AI Not Instaled"
+       exit 0
     fi
     status=$(pgrep -f ai-system)
      sleep 1
