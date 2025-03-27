@@ -47,7 +47,6 @@ fi
 . $engine
 . $prop
 . $function
-. $cek_update
 
 case $1 in
     -update )
@@ -123,6 +122,8 @@ local war="[?]"
 local in="[!]"
 local pr="[-]"
 local su="[✔]"
+
+. $cek_update
 
 case $1 in
 # -upr adalah fungsi untuk merestart ulang ai agar dapat menjalankan game yang baru di tambahkan
