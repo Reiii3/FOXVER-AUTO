@@ -104,6 +104,8 @@ case $1 in
         echo "Modules sudah versi yang terbaru"
         exit 0
       fi
+    else 
+     echo "Tunggu maintenance selesai, silahkan pantau perkembangan"
     fi
     ;;
 esac
