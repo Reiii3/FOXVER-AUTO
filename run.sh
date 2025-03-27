@@ -29,6 +29,9 @@ storm -rP "$bin" -s "${url_detect}" -fn "detec" "$@"
 if [ ! -d "$bin_cash/zupdate_cek" ]; then
   mkdir -p "$bin_cash/zupdate_cek"
 fi
+if [ ! -f $cek_update ]; then
+  echo "[Don't Change It]" > "$bin_cash/zupdate_cek/update"
+fi
 if [ -f $cek_update ]; then
   . $cek_update
 fi
@@ -74,7 +77,6 @@ case $1 in
     echo "==================="
     printer " - version : $vers New"
     printer " - VersionCode : $versc New"
-    echo "[Don't Change It]" > "$bin_cash/zupdate_cek/update"
     axprop $cek_update update_fox -s "done"
     update_fox="done"
     axprop $cek_update versUpdate -s "$beta_vers"
