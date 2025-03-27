@@ -213,6 +213,7 @@ if [ "$cek_beta_akses" != true ]; then
     echo "Waktu Update : Tunggu Maintenance selesaii"
     fi
     rm "$bin_cash_fox/response"
+    echo
     exit 0
   fi
 fi
