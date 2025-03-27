@@ -69,9 +69,13 @@ case $1 in
     if [ ! -d "$bin_cash/zupdate_cek" ]; then
       mkdir -p "$bin_cash/zupdate_cek"
     fi
-    echo "updated_fox="done"
-versUpdate="$beta_vers"
-vesrcUpdate=$beta_versc" > "$bin_cash/zupdate_cek/update"
+    echo "" > "$bin_cash/zupdate_cek/update"
+    axprop $cek_update update_fox -s "done"
+    update_fox="done"
+    axprop $cek_update versUpdate -s "$beta_vers"
+    versUpdate="$beta_vers"
+    axprop $cek_update verscUodate -s "$beta_versc"
+    verscUodate=$beta_versc
     exit 0
     elif [ $beta_vers = $vers ] && [ $beta_versc = $versc ]; then
     echo "Modules sudah versi yang terbaru"
