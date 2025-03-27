@@ -35,8 +35,8 @@ if [ ! -f $cek_update ]; then
   update_fox="maintenance"
   axprop $cek_update versUpdate -s "null"
   versUpdate="null"
-  axprop $cek_update verscUodate -s "null"
-  verscUodate=null
+  axprop $cek_update verscUpdate -s "null"
+  verscUpdate=null
 fi
 if [ -f $cek_update ]; then
   . $cek_update
@@ -87,8 +87,8 @@ case $1 in
     update_fox="done"
     axprop $cek_update versUpdate -s "$beta_vers"
     versUpdate="$beta_vers"
-    axprop $cek_update verscUodate -s "$beta_versc"
-    verscUodate=$beta_versc
+    axprop $cek_update verscUpdate -s "$beta_versc"
+    verscUpdate=$beta_versc
     exit 0
     elif [ $beta_vers = $vers ] && [ $beta_versc = $versc ]; thene
     echo "Modules sudah versi yang terbaru"
@@ -150,10 +150,10 @@ if [ $update_fox = done ]; then
   if [ -f $cek_update ]; then
      axprop $main sys_main -s false
      sys_main=false 
-     axprop $prop vers -s "$versUodate"
+     axprop $prop vers -s "$versUpdate"
      vers=$versUpdate
-     axprop $prop versc -s "$verscUodate"
-     versc=$verscUodate
+     axprop $prop versc -s "$verscUpdate"
+     versc=$verscUpdate
   fi
 fi
 
