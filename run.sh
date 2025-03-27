@@ -122,8 +122,9 @@ local war="[?]"
 local in="[!]"
 local pr="[-]"
 local su="[✔]"
-
-. $cek_update
+if [ -d $bin_cek_update ]; then
+  . $cek_update
+fi
 
 case $1 in
 # -upr adalah fungsi untuk merestart ulang ai agar dapat menjalankan game yang baru di tambahkan
