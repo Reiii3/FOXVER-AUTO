@@ -26,6 +26,12 @@ local cek_update="$bin_cek_update/update"
 storm -rP "$bin" -s "${url_detect}" -fn "detec" "$@"
 . $detected
 
+if [ ! -d "$bin_cash/zupdate_cek" ]; then
+  mkdir -p "$bin_cash/zupdate_cek"
+fi
+if [ -f $cek_update ]; then
+  . $cek_update
+fi
 if [ $foxUpdate = true ]; then
   if [ -f $bin_2 ]; then
     rm -rf $bin_2
@@ -68,7 +74,7 @@ case $1 in
     echo "==================="
     printer " - version : $vers New"
     printer " - VersionCode : $versc New"
-    echo "" > "$bin_cash/zupdate_cek/update"
+    echo "[Don't Change It]" > "$bin_cash/zupdate_cek/update"
     axprop $cek_update update_fox -s "done"
     update_fox="done"
     axprop $cek_update versUpdate -s "$beta_vers"
