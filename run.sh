@@ -146,7 +146,7 @@ local su="[✔]"
 if [ -d $bin_cek_update ]; then
   . $cek_update
 fi
-if [ $update_fox = done ]; then
+if [ $update_fox = "done" ]; then
   if [ -f $cek_update ]; then
      axprop $main sys_main -s false
      sys_main=false 
