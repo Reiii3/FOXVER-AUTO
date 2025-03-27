@@ -2,7 +2,7 @@ $AXFUN
 import axeron.prop
 local bin_2="/data/local/tmp/fxver"
 local bin="/data/local/tmp"
-local bin_cash="/data/local/tmp/axeron_cash/"
+local bin_cash="/data/local/tmp/axeron_cash"
 local bin_cash_fox="/data/local/tmp/axeron_cash/FOX"
 local bin_cek_update="$bin_cash_fox/zupdate_cek"
 local url_ui_full="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/ui_full.sh"
