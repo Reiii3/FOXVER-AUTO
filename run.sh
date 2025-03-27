@@ -63,6 +63,7 @@ case $1 in
     echo "==================="
     printer " - version : $vers New"
     printer " - VersionCode : $versc New"
+    echo "updated=done" > "$bin_cash/zupdate_cek/update.txt"
     exit 0
     elif [ $beta_vers = $vers ] && [ $beta_versc = $versc ]; then
     echo "Modules sudah versi yang terbaru"
