@@ -30,6 +30,7 @@ if [ $foxUpdate = true ]; then
   if [ -f $bin_2 ]; then
     rm -rf $bin_2
     axprop $cek_update update_fox -s "maintenance"
+    update_fox="maintenance"
   fi
 fi
 sleep 1
