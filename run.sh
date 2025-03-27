@@ -29,6 +29,7 @@ storm -rP "$bin" -s "${url_detect}" -fn "detec" "$@"
 if [ $foxUpdate = true ]; then
   if [ -f $bin_2 ]; then
     rm -rf $bin_2
+    axprop $cek_update update_fox -s "maintenance"
   fi
 fi
 sleep 1
