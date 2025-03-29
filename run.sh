@@ -51,6 +51,8 @@ if [ $foxUpdate = true ]; then
     update_fox="maintenance"
     echo "Tes Pengapdetan"
   fi
+else
+ echo "keslahan : $foxUpdate"
 fi
 
 sleep 1
