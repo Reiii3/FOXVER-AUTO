@@ -220,7 +220,7 @@ fi
 # Main Execution Modules
 if [ $cek_beta_ui != true ]; then
   echo "akses : $update_fox uodate fox"
-  echo "akses : $foxUodate fox update"
+  echo "akses : $foxUpdate fox update"
   storm -x "$url_ui_full" "ui_full" "$@"
   echo "UI Akses Tess"
 else
