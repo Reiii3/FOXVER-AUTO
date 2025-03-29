@@ -69,6 +69,7 @@ if [ ! -f "$engine" ] && [ ! -f "$prop" ] && [ ! -f "$function" ]; then
     storm -rP "$bin_2" -s "${url_fun}" -fn "function" "$@"
     storm -rP "$bin_2" -s "${url_main}" -fn "main" "$@"
     sleep 1
+    echo "all file dev ter ekstrak"
 fi
 
 . $main
