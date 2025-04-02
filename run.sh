@@ -102,7 +102,7 @@ fi
 . $function
 
 # Cek apakah anda menggunakan versi terbaru
-if [ $update_fox = "maintenance"]
+if [ $update_fox = "maintenance" ]; then
   if [[ $versUpdate != $vers ]] && [[ $verscUpdate != $verc ]]; then
      axprop $prop vers -s "$versUpdate"
      vers="$versUpdate"
