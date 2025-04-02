@@ -48,7 +48,7 @@ else
   echo "ERROR cek_update dont not detected."
 fi
 
-if [[ "$foxUpdate" = "true" ]]; then
+if [[ "$foxUpdate" == "true" ]]; then
     rm -rf $bin_2
     echo "bin 2 removed"
     axprop $cek_update update_fox -s "maintenance"
