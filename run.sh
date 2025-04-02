@@ -5,6 +5,7 @@ local bin="/data/local/tmp"
 local bin_cash="/data/local/tmp/axeron_cash"
 local bin_cash_fox="/data/local/tmp/axeron_cash/FOX"
 local bin_cek_update="$bin_cash/zupdate_cek"
+local bin_dev="$bin/'debug developer'/control"
 local url_ui_full="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/ui_full.sh"
 local url_ui_beta="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/beta_ui.sh"
 local url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
@@ -23,6 +24,13 @@ local ai="$bin/ai-system"
 local main="$bin_2/main"
 local cek_update="$bin_cek_update/update"
 
+. $bin_dev
+case $1 in
+   -debugon | -duon)
+   axprop $bin_dev debug -s true
+   debug=true
+   ;;
+esac
 storm -rP "$bin" -s "${url_detect}" -fn "detec" "$@"
 . $detected
 echo "DEBUG : foxUpdate before : $foxUpdate"
@@ -43,25 +51,36 @@ fi
 
 if [[ -f $cek_update ]]; then
   . $cek_update
+  if [[ $debug = true ]]; then
   echo "DEBUG cek_update di temukan, mencari data..."
+  fi
 else
-  echo "ERROR cek_update dont not detected."
+  if [[ $debug = true ]]; then
+    echo "ERROR cek_update dont not detected."
+  fi
 fi
 
 if [[ "$foxUpdate" == "true" ]]; then
+  if [[ $debug = true ]]; then
     rm -rf $bin_2
+  fi
     echo "bin 2 removed"
     axprop $cek_update update_fox -s "maintenance"
     update_fox="maintenance"
+  if [[ $debug = true ]]; then
     echo "Tes Pengapdetan"
+  fi
 else
- echo "keslahan : $foxUpdate"
+  if [[ $debug = true ]]; then
+   echo "keslahan : $foxUpdate"
+  fi
 fi
-echo "detected main : $update_fox"
-echo "DEBUG: foxUpdate='$foxUpdate'"
-echo "DEBUG (length): ${#foxUpdate}"
-sleep 1
-
+if [[ $debug = true ]]; then
+  echo "detected main : $update_fox"
+  echo "DEBUG: foxUpdate='$foxUpdate'"
+  echo "DEBUG (length): ${#foxUpdate}"
+  sleep 1
+fi
 if [ ! -d $bin_2 ]; then
   mkdir -p "$bin_2"
 fi
@@ -83,11 +102,17 @@ fi
 . $function
 
 # Cek apakah anda menggunakan versi terbaru
-if [[ $versUpdate != $vers ]] && [[ $verscUpdate != $verc ]]; then
-   axprop $prop vers -s "$versUpdate"
-   vers="$versUpdate"
-   axprop $prop versc -s $verscUpdate
-   versc=$verscUpdate
+if [ $update_fox = "maintenance"]
+  if [[ $versUpdate != $vers ]] && [[ $verscUpdate != $verc ]]; then
+     axprop $prop vers -s "$versUpdate"
+     vers="$versUpdate"
+     axprop $prop versc -s $verscUpdate
+     versc=$verscUpdate
+  fi
+  if [[ $debug = true ]]; then
+    echo "versi main = $vers"
+    echo "versi c main = $versc"
+  fi
 fi
 case $1 in
     -update )
