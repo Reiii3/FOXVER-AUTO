@@ -82,6 +82,13 @@ fi
 . $prop
 . $function
 
+# Cek apakah anda menggunakan versi terbaru
+if [ $versUpdate != $vers ] && [ $verscUpdate != $verc ]; then
+   axprop $prop vers -s "$versUpdate"
+   vers="$versUpdate"
+   axprop $prop versc -s $verscUpdate
+   versc=$verscUpdate
+fi
 case $1 in
     -update )
     if [ $foxUpdate = false ]; then
