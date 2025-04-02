@@ -30,10 +30,16 @@ case $1 in
    axprop $bin_dev debug -s true
    debug=true
    ;;
+   -debugoff | -duoff)
+   axprop $bin_dev debug -s false
+   debug=false
+   ;;
 esac
 storm -rP "$bin" -s "${url_detect}" -fn "detec" "$@"
 . $detected
-echo "DEBUG : foxUpdate before : $foxUpdate"
+if [[ $debug = true ]]; then
+  echo "DEBUG : foxUpdate before : $foxUpdate"
+fi
 if [ ! -d "$bin_cash/zupdate_cek" ]; then
    mkdir -p "$bin_cash/zupdate_cek"
 fi
@@ -64,7 +70,9 @@ if [[ "$foxUpdate" == "true" ]]; then
   if [[ $debug = true ]]; then
     rm -rf $bin_2
   fi
+  if [[ $debug = true ]]; then
     echo "bin 2 removed"
+  fi
     axprop $cek_update update_fox -s "maintenance"
     update_fox="maintenance"
   if [[ $debug = true ]]; then
