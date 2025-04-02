@@ -30,7 +30,7 @@ if [ ! -d "$bin_cash/zupdate_cek" ]; then
   mkdir -p "$bin_cash/zupdate_cek"
 fi
 
-if [ ! -f $cek_update ]; then
+if [[ ! -f $cek_update ]]; then
   echo "# Dont Change It" > "$bin_cash/zupdate_cek/update"
   sleep 2
   axprop $cek_update update_fox -s "maintenance"
@@ -41,9 +41,14 @@ if [ ! -f $cek_update ]; then
   verscUpdate=null
 fi
 
-. $cek_update
+if [[ -f $cek_update ]]; then
+  . $cek_update
+  echo "DEBUG cek_update di temukan, mencari data..."
+else
+  echo "ERROR cek_update dont not detected."
+fi
 
-if [ $foxUpdate = true ]; then
+if [[ "$foxUpdate" = "true" ]]; then
   if [ -f $bin_2 ]; then
     rm -rf $bin_2
     echo "bin 2 removed"
