@@ -27,7 +27,7 @@ storm -rP "$bin" -s "${url_detect}" -fn "detec" "$@"
 . $detected
 echo "DEBUG : foxUpdate before : $foxUpdate"
 if [ ! -d "$bin_cash/zupdate_cek" ]; then
-  mkdir -p "$bin_cash/zupdate_cek"
+   mkdir -p "$bin_cash/zupdate_cek"
 fi
 
 if [[ ! -f $cek_update ]]; then
@@ -83,7 +83,7 @@ fi
 . $function
 
 # Cek apakah anda menggunakan versi terbaru
-if [ $versUpdate != $vers ] && [ $verscUpdate != $verc ]; then
+if [[ $versUpdate != $vers ]] && [[ $verscUpdate != $verc ]]; then
    axprop $prop vers -s "$versUpdate"
    vers="$versUpdate"
    axprop $prop versc -s $verscUpdate
