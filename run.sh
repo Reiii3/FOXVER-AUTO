@@ -269,8 +269,10 @@ if [ "$cek_beta_akses" != true ]; then
 fi
 # Main Execution Modules
 if [ $cek_beta_ui != true ]; then
-  echo "akses : $update_fox uodate fox"
-  echo "akses : $foxUpdate fox update"
+  if [[ $debug = true ]]; then
+    echo "akses : $update_fox uodate fox"
+    echo "akses : $foxUpdate fox update"
+  fi
   storm -x "$url_ui_full" "ui_full" "$@"
   echo "UI Akses Tess"
 else
