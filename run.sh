@@ -49,13 +49,11 @@ else
 fi
 
 if [[ "$foxUpdate" = "true" ]]; then
-  if [ -f $bin_2 ]; then
     rm -rf $bin_2
     echo "bin 2 removed"
     axprop $cek_update update_fox -s "maintenance"
     update_fox="maintenance"
     echo "Tes Pengapdetan"
-  fi
 else
  echo "keslahan : $foxUpdate"
 fi
