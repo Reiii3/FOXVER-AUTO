@@ -24,7 +24,9 @@ local ai="$bin/ai-system"
 local main="$bin_2/main"
 local cek_update="$bin_cek_update/update"
 
-. $bin_dev
+if [ -d $bin_dev ]; then
+  . $bin_dev
+fi
 case $1 in
    -debugon | -duon)
    axprop $bin_dev debug -s true
