@@ -25,7 +25,7 @@ local cek_update="$bin_cek_update/update"
 
 storm -rP "$bin" -s "${url_detect}" -fn "detec" "$@"
 . $detected
-
+echo "detected fox : $foxUpdate"
 if [ ! -d "$bin_cash/zupdate_cek" ]; then
   mkdir -p "$bin_cash/zupdate_cek"
 fi
@@ -54,7 +54,7 @@ if [ $foxUpdate = true ]; then
 else
  echo "keslahan : $foxUpdate"
 fi
-
+echo "detected main : $update_fox"
 sleep 1
 
 if [ ! -d $bin_2 ]; then
