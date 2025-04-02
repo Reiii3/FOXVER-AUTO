@@ -55,6 +55,8 @@ if [[ ! -f $cek_update ]]; then
   versUpdate="null"
   axprop $cek_update verscUpdate -s null
   verscUpdate=null
+  axprop $cek_update notif -s true
+  notif=true
 fi
 
 if [[ -f $cek_update ]]; then
@@ -77,6 +79,8 @@ if [[ "$foxUpdate" == "true" ]]; then
   fi
     axprop $cek_update update_fox -s "maintenance"
     update_fox="maintenance"
+    axprop $cek_update notif -s false
+    update_fox=false
   if [[ $debug = true ]]; then
     echo "Tes Pengapdetan"
   fi
@@ -211,7 +215,6 @@ local su="[✔]"
 . $cek_update
 
 if [ $update_fox = "done" ]; then
-echo "update berhasil"
   if [ -f $cek_update ]; then
      axprop $main sys_main -s false
      sys_main=false 
@@ -219,6 +222,11 @@ echo "update berhasil"
      vers=$versUpdate
      axprop $prop versc -s "$verscUpdate"
      versc=$verscUpdate
+  fi
+  if [ $notif = false ]; then
+    echo "[System telah di update ke versi $vers | $versc]"
+    axprop $cek_update notif -s true
+    update_fox=true
   fi
 fi
 
