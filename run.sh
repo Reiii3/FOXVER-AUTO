@@ -248,6 +248,9 @@ echo
   echo " VersionCode : $verscUpdate"
   echo " decript : $descript"
   exit 0
+  if [[ $debug = true ]]; then
+    echo "detected main : $update_fox"
+  fi
   echo
 fi
 
