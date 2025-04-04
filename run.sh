@@ -230,6 +230,23 @@ if [ $update_fox = "done" ]; then
   fi
 fi
 
+if [[ $versUpdate = "null" ]] && [[ $verscUpdate = "null" ]]; then
+echo
+  echo "    [installing system]"
+  axprop $cek_update update_fox -s "done"
+  update_fox="done"
+  axprop $cek_update versUpdate -s "$beta_vers"
+  versUpdate="$beta_vers"
+  axprop $cek_update verscUpdate -s "$beta_versc"
+  verscUpdate=$beta_versc
+  echo "- information Version -"
+  echo " version : $versUpdate"
+  echo " VersionCode : $verscUpdate"
+  echo " decript : $descript"
+  exit 0
+  echo
+fi
+
 case $1 in
 # -upr adalah fungsi untuk merestart ulang ai agar dapat menjalankan game yang baru di tambahkan
     -upr | -u )
