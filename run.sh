@@ -239,6 +239,8 @@ echo
   versUpdate="$beta_vers"
   axprop $cek_update verscUpdate -s "$beta_versc"
   verscUpdate=$beta_versc
+  axprop $main sys_main -s false
+  sys_main=false 
   echo "- information Version -"
   echo " version : $versUpdate"
   echo " VersionCode : $verscUpdate"
