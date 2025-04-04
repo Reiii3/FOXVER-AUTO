@@ -124,12 +124,17 @@ if [ $update_fox = "maintenance" ]; then
      vers="$versUpdate"
      axprop $prop versc -s $verscUpdate
      versc=$verscUpdate
-  fi
-  if [[ $debug = true ]]; then
+   if [[ $debug = true ]]; then
     echo "versi main = $vers"
     echo "versi c main = $versc"
+   fi
   fi
+   if [[ $debug = true ]]; then
+    echo "versi main = $vers"
+    echo "versi c main = $versc"
+   fi
 fi
+# // Ini untuk mengupdate version modules
 case $1 in
     -update )
     if [ $foxUpdate = false ]; then
@@ -167,6 +172,7 @@ case $1 in
     fi
     ;;
 esac
+# // ini untuk mode developer
 case $1 in
    -dev_on | -don )
     axprop $engine dev_mode -s true
@@ -189,6 +195,8 @@ case $1 in
    ui_mod=false
    ;;
 esac
+
+# // Ini di gunakan untuk developer atau donatur yang menggunakan beta version
 if [ $ui_mod = false ]; then
   local cek_ui=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_ui.txt")
 fi
@@ -216,6 +224,7 @@ local su="[✔]"
 
 . $cek_update
 
+# Ini Adalah pengecekan apakah dia sudah update atau belum agar system maintenance di ubah ke mode off
 if [ $update_fox = "done" ]; then
   if [ -f $cek_update ]; then
      axprop $main sys_main -s false
@@ -232,6 +241,7 @@ if [ $update_fox = "done" ]; then
   fi
 fi
 
+# Ini untuk Mengecek Apakah dia baru menginstal module ini agar langsung dapat menggunakan version terbaru
 if [[ $versUpdate = "null" ]] && [[ $verscUpdate = "null" ]]; then
 echo
   echo "    [initializing system]"
