@@ -55,8 +55,8 @@ if [[ ! -f $cek_update ]]; then
   versUpdate="null"
   axprop $cek_update verscUpdate -s null
   verscUpdate=null
-  axprop $cek_update notif -s true
-  notif=true
+  axprop $cek_update notif -s false
+  notif=false
 fi
 
 if [[ -f $cek_update ]]; then
