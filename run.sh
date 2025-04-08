@@ -24,9 +24,13 @@ local ai="$bin/ai-system"
 local main="$bin_2/main"
 local cek_update="$bin_cek_update/update"
 
+# == Pemisah skrip dengan kode program == #
+#================================================================================#
+
 if [ -d $bin_dev ]; then
   . $bin_dev
 fi
+
 case $1 in
    -debugon | -duon)
    axprop $bin_dev debug -s true
@@ -37,11 +41,13 @@ case $1 in
    debug=false
    ;;
 esac
+
 storm -rP "$bin" -s "${url_detect}" -fn "detec" "$@"
 . $detected
 if [[ $debug = true ]]; then
   echo "DEBUG : foxUpdate before : $foxUpdate"
 fi
+
 if [ ! -d "$bin_cash/zupdate_cek" ]; then
    mkdir -p "$bin_cash/zupdate_cek"
 fi
@@ -70,10 +76,12 @@ else
   fi
 fi
 
+#=============================#
+# === Menghapus file lama === #
+#=============================#
+
 if [[ "$foxUpdate" == "true" ]]; then
-  if [[ $debug = true ]]; then
     rm -rf $bin_2
-  fi
   if [[ $debug = true ]]; then
     echo "bin 2 removed"
   fi
@@ -81,20 +89,22 @@ if [[ "$foxUpdate" == "true" ]]; then
     update_fox="maintenance"
     axprop $cek_update notif -s false
     update_fox=false
-  if [[ $debug = true ]]; then
-    echo "Tes Pengapdetan"
-  fi
+    if [[ $debug = true ]]; then
+      echo "Tes Pengapdetan"
+    fi
 else
   if [[ $debug = true ]]; then
    echo "keslahan : $foxUpdate"
   fi
 fi
+
 if [[ $debug = true ]]; then
   echo "detected main : $update_fox"
   echo "DEBUG: foxUpdate='$foxUpdate'"
   echo "DEBUG (length): ${#foxUpdate}"
   sleep 1
 fi
+
 if [ ! -d $bin_2 ]; then
   mkdir -p "$bin_2"
 fi
@@ -116,8 +126,7 @@ fi
 . $engine
 . $prop
 . $function
-
-
+  
 # // Ini untuk mengupdate version modules
 case $1 in
     -update )
@@ -229,19 +238,32 @@ fi
 if [[ $versUpdate = "null" ]] && [[ $verscUpdate = "null" ]]; then
 echo
   echo "    [initializing system]"
-  axprop $cek_update update_fox -s "done"
-  update_fox="done"
-  axprop $cek_update versUpdate -s "$beta_vers"
-  versUpdate="$beta_vers"
-  axprop $cek_update verscUpdate -s "$beta_versc"
-  verscUpdate=$beta_versc
-  axprop $main sys_main -s false
-  sys_main=false 
+  if [[ $sys_main != true ]]; then
+    axprop $cek_update update_fox -s "done"
+    update_fox="done"
+    axprop $cek_update versUpdate -s "$beta_vers"
+    versUpdate="$beta_vers"
+    axprop $cek_update verscUpdate -s "$beta_versc"
+    verscUpdate=$beta_versc
+    axprop $main sys_main -s false
+    sys_main=false
+  
   echo "- information Version -"
   echo " version : $versUpdate"
   echo " VersionCode : $verscUpdate"
   echo " decript : $descript"
   exit 0
+     axprop $prop vers -s "$versUpdate"
+     vers=$versUpdate
+     axprop $prop versc -s $verscUpdate
+     versc=$verscUpdate
+  else
+    echo "  system masih dalam mode update jadi silahkan tunggu update selesai"
+    axprop $cek_update versUpdate -s "$vers"
+    versUpdate="$vers"
+    axprop $cek_update verscUpdate -s $versc
+    verscUpdate=$versc
+  fi
   if [[ $debug = true ]]; then
     echo "detected main : $update_fox"
   fi
