@@ -117,23 +117,7 @@ fi
 . $prop
 . $function
 
-# Cek apakah anda menggunakan versi terbaru
-if [ $update_fox = "maintenance" ]; then
-  if [[ $versUpdate != $vers ]] && [[ $verscUpdate != $verc ]]; then
-     axprop $prop vers -s "$versUpdate"
-     vers="$versUpdate"
-     axprop $prop versc -s $verscUpdate
-     versc=$verscUpdate
-   if [[ $debug = true ]]; then
-    echo "versi main = $vers"
-    echo "versi c main = $versc"
-   fi
-  fi
-   if [[ $debug = true ]]; then
-    echo "versi main = $vers"
-    echo "versi c main = $versc"
-   fi
-fi
+
 # // Ini untuk mengupdate version modules
 case $1 in
     -update )
