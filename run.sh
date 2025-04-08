@@ -219,14 +219,12 @@ local su="[✔]"
 
 # Ini Adalah pengecekan apakah dia sudah update atau belum agar system maintenance di ubah ke mode off
 if [ $update_fox = "done" ]; then
-  if [ -f $cek_update ]; then
      axprop $main sys_main -s false
      sys_main=false 
      axprop $prop vers -s "$versUpdate"
      vers=$versUpdate
      axprop $prop versc -s "$verscUpdate"
      versc=$verscUpdate
-  fi
   if [ $notif = false ]; then
     echo "[System telah di update ke versi $vers | $versc]"
     axprop $cek_update notif -s true
