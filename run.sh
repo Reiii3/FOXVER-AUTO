@@ -251,6 +251,7 @@ echo
   echo " versionCode : $verscUpdate"
   echo " decription  : $descript"
   echo
+  exit 0
      axprop $prop vers -s "$versUpdate"
      vers=$versUpdate
      axprop $prop versc -s $verscUpdate
