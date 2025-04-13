@@ -266,6 +266,9 @@ echo "    [initializing system]"
        versc=$verscUpdate
        axprop $cek_update waktuIn -s $time
        waktuIn=$time
+    if [[ $debug = true ]]; then
+      echo "detected main : $update_fox"
+    fi
     exit 0
     fi
   else
