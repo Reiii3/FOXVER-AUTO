@@ -247,9 +247,9 @@ echo
     sys_main=false
   
   echo "- information Version -"
-  echo " version : $versUpdate"
-  echo " VersionCode : $verscUpdate"
-  echo " decript : $descript"
+  echo " version     : $versUpdate"
+  echo " versionCode : $verscUpdate"
+  echo " decription  : $descript"
   echo
      axprop $prop vers -s "$versUpdate"
      vers=$versUpdate
