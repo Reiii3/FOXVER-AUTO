@@ -236,7 +236,7 @@ fi
 if [[ $versUpdate = "null" ]] && [[ $verscUpdate = "null" ]]; then
 echo
   echo "    [initializing system]"
-  if [[ $sys_main != true ]]; then
+  if [[ $sys_main = true ]]; then
     axprop $cek_update update_fox -s "done"
     update_fox="done"
     axprop $cek_update versUpdate -s "$beta_vers"
