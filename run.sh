@@ -255,7 +255,6 @@ echo "    [initializing system]"
       verscUpdate=$beta_versc
       axprop $main sys_main -s false
       sys_main=false
-    
     echo "- information Version -"
     echo " version     : $versUpdate"
     echo " versionCode : $verscUpdate"
