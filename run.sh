@@ -97,8 +97,8 @@ if [[ "$foxUpdate" == "true" ]]; then
     update_fox="maintenance"
     axprop $cek_update notif -s false
     update_fox=false
-    axprop $cek_update waktuUp -s $time
-    waktuUp=time
+    axprop $cek_update waktuUp -s "$time"
+    waktuUp="$time"
     if [[ $debug = true ]]; then
       echo "Tes Pengapdetan"
     fi
@@ -149,8 +149,8 @@ case $1 in
         vers=$beta_vers
         axprop $prop versc -s "$beta_versc"
         versc=$beta_versc
-        axprop $cek_update waktuIn -s $time
-        waktuIn=$time
+        axprop $cek_update waktuIn -s "$time"
+        waktuIn="$time"
         sleep 2
         printer "Update succesfuly"
         echo "==================="
@@ -245,6 +245,7 @@ fi
 if [[ $versUpdate = "null" ]] && [[ $verscUpdate = "null" ]]; then
 echo
   echo "    [initializing system]"
+if [[ $foxUpdate != true ]]; then
   if [[ $sys_main = true ]]; then
     axprop $cek_update update_fox -s "done"
     update_fox="done"
@@ -267,15 +268,14 @@ echo
      versc=$verscUpdate
      axprop $cek_update waktuIn -s $time
      waktuIn=$time
-  else
-    echo "  system masih dalam masa pemeliharaan 
-    jadi silahkan tunggu update selesai"
-    
+  fi
+  echo
+    echo "system masih dalam masa pemeliharaan jadi silahkan tunggu sampai selesai"
+    printer "   - Terima kasih -"
     axprop $cek_update versUpdate -s "$vers"
     versUpdate="$vers"
     axprop $cek_update verscUpdate -s $versc
     verscUpdate=$versc
-  fi
   if [[ $debug = true ]]; then
     echo "detected main : $update_fox"
   fi
