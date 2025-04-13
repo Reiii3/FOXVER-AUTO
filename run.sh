@@ -269,6 +269,7 @@ echo "    [initializing system]"
        waktuIn=$time
     exit 0
     fi
+  else
     echo
       echo "system masih dalam masa pemeliharaan jadi silahkan tunggu sampai selesai"
       printer "   - Terima kasih -"
