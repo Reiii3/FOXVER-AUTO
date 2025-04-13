@@ -261,13 +261,13 @@ echo "    [initializing system]"
     echo " versionCode : $verscUpdate"
     echo " decription  : $descript"
     echo
-    exit 0
        axprop $prop vers -s "$versUpdate"
        vers=$versUpdate
        axprop $prop versc -s $verscUpdate
        versc=$verscUpdate
        axprop $cek_update waktuIn -s $time
        waktuIn=$time
+    exit 0
     fi
     echo
       echo "system masih dalam masa pemeliharaan jadi silahkan tunggu sampai selesai"
