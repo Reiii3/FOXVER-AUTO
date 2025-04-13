@@ -256,7 +256,8 @@ echo
      axprop $prop versc -s $verscUpdate
      versc=$verscUpdate
   else
-    echo "  system masih dalam mode update jadi silahkan tunggu update selesai"
+    echo "  system masih dalam masa pemeliharaan 
+    jadi silahkan tunggu update selesai"
     axprop $cek_update versUpdate -s "$vers"
     versUpdate="$vers"
     axprop $cek_update verscUpdate -s $versc
