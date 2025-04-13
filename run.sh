@@ -23,6 +23,10 @@ local engine="$bin_2/engine"
 local ai="$bin/ai-system"
 local main="$bin_2/main"
 local cek_update="$bin_cek_update/update"
+local war="[?]"
+local in="[!]"
+local pr="[-]"
+local su="[√]"  
 
 # == Pemisah skrip dengan kode program == #
 #================================================================================#
@@ -79,7 +83,7 @@ fi
 #=============================#
 # === Menghapus file lama === #
 #=============================#
-
+# // Fungsi ini di gunakan untuk mendeteksi update atau juga bisa di sebut core dari system update
 if [[ "$foxUpdate" == "true" ]]; then
     rm -rf $bin_2
   if [[ $debug = true ]]; then
@@ -210,10 +214,6 @@ if [ -n "$1" ] && [ "$1" == "-g" ]; then
   shift 2
 fi
 
-local war="[?]"
-local in="[!]"
-local pr="[-]"
-local su="[✔]"
 
 . $cek_update
 
