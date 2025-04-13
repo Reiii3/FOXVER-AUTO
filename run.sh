@@ -250,7 +250,7 @@ echo
   echo " version : $versUpdate"
   echo " VersionCode : $verscUpdate"
   echo " decript : $descript"
-  exit 0
+  echo
      axprop $prop vers -s "$versUpdate"
      vers=$versUpdate
      axprop $prop versc -s $verscUpdate
@@ -258,6 +258,7 @@ echo
   else
     echo "  system masih dalam masa pemeliharaan 
     jadi silahkan tunggu update selesai"
+    
     axprop $cek_update versUpdate -s "$vers"
     versUpdate="$vers"
     axprop $cek_update verscUpdate -s $versc
