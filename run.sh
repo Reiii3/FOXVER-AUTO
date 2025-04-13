@@ -27,7 +27,7 @@ local war="[?]"
 local in="[!]"
 local pr="[-]"
 local su="[√]"  
-
+local time=$(date "+%a %b %d %H:%M %Z %Y")
 # == Pemisah skrip dengan kode program == #
 #================================================================================#
 
@@ -65,6 +65,8 @@ if [[ ! -f $cek_update ]]; then
   versUpdate="null"
   axprop $cek_update verscUpdate -s null
   verscUpdate=null
+  axprop $cek_update waktu -s null
+  waktu=null
   axprop $cek_update notif -s false
   notif=false
 fi
@@ -309,7 +311,8 @@ if [ "$cek_beta_akses" != true ]; then
     if [ $foxUpdate = false ]; then
     echo "Waktu Update : update terbaru sudah ada"
     else
-    echo "Waktu Update : Tunggu Maintenance selesaii"
+    echo "Waktu Update : tunggu M
+    maintenance selesaii"
     fi
     rm "$bin_cash_fox/response"
     echo
