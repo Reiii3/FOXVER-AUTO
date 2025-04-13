@@ -244,42 +244,43 @@ fi
 # Ini untuk Mengecek Apakah dia baru menginstal module ini agar langsung dapat menggunakan version terbaru
 if [[ $versUpdate = "null" ]] && [[ $verscUpdate = "null" ]]; then
 echo
-  echo "    [initializing system]"
-if [[ $foxUpdate != true ]]; then
-  if [[ $sys_main = true ]]; then
-    axprop $cek_update update_fox -s "done"
-    update_fox="done"
-    axprop $cek_update versUpdate -s "$beta_vers"
-    versUpdate="$beta_vers"
-    axprop $cek_update verscUpdate -s "$beta_versc"
-    verscUpdate=$beta_versc
-    axprop $main sys_main -s false
-    sys_main=false
-  
-  echo "- information Version -"
-  echo " version     : $versUpdate"
-  echo " versionCode : $verscUpdate"
-  echo " decription  : $descript"
-  echo
-  exit 0
-     axprop $prop vers -s "$versUpdate"
-     vers=$versUpdate
-     axprop $prop versc -s $verscUpdate
-     versc=$verscUpdate
-     axprop $cek_update waktuIn -s $time
-     waktuIn=$time
+echo "    [initializing system]"
+  if [[ $foxUpdate != true ]]; then
+    if [[ $sys_main = true ]]; then
+      axprop $cek_update update_fox -s "done"
+      update_fox="done"
+      axprop $cek_update versUpdate -s "$beta_vers"
+      versUpdate="$beta_vers"
+      axprop $cek_update verscUpdate -s "$beta_versc"
+      verscUpdate=$beta_versc
+      axprop $main sys_main -s false
+      sys_main=false
+    
+    echo "- information Version -"
+    echo " version     : $versUpdate"
+    echo " versionCode : $verscUpdate"
+    echo " decription  : $descript"
+    echo
+    exit 0
+       axprop $prop vers -s "$versUpdate"
+       vers=$versUpdate
+       axprop $prop versc -s $verscUpdate
+       versc=$verscUpdate
+       axprop $cek_update waktuIn -s $time
+       waktuIn=$time
+    fi
+    echo
+      echo "system masih dalam masa pemeliharaan jadi silahkan tunggu sampai selesai"
+      printer "   - Terima kasih -"
+      axprop $cek_update versUpdate -s "$vers"
+      versUpdate="$vers"
+      axprop $cek_update verscUpdate -s $versc
+      verscUpdate=$versc
+    if [[ $debug = true ]]; then
+      echo "detected main : $update_fox"
+    fi
   fi
-  echo
-    echo "system masih dalam masa pemeliharaan jadi silahkan tunggu sampai selesai"
-    printer "   - Terima kasih -"
-    axprop $cek_update versUpdate -s "$vers"
-    versUpdate="$vers"
-    axprop $cek_update verscUpdate -s $versc
-    verscUpdate=$versc
-  if [[ $debug = true ]]; then
-    echo "detected main : $update_fox"
-  fi
-  echo
+echo
 fi
 
 case $1 in
