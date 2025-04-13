@@ -65,8 +65,10 @@ if [[ ! -f $cek_update ]]; then
   versUpdate="null"
   axprop $cek_update verscUpdate -s null
   verscUpdate=null
-  axprop $cek_update waktu -s null
-  waktu=null
+  axprop $cek_update waktuUp -s null
+  waktuUp=null
+  axprop $cek_update waktuIn -s null
+  waktuIn=null
   axprop $cek_update notif -s false
   notif=false
 fi
@@ -95,6 +97,8 @@ if [[ "$foxUpdate" == "true" ]]; then
     update_fox="maintenance"
     axprop $cek_update notif -s false
     update_fox=false
+    axprop $cek_update waktuUp -s $time
+    waktuUp=time
     if [[ $debug = true ]]; then
       echo "Tes Pengapdetan"
     fi
@@ -145,6 +149,8 @@ case $1 in
         vers=$beta_vers
         axprop $prop versc -s "$beta_versc"
         versc=$beta_versc
+        axprop $cek_update waktuIn -s $time
+        waktuIn=$time
         sleep 2
         printer "Update succesfuly"
         echo "==================="
@@ -152,6 +158,7 @@ case $1 in
         echo "==================="
         printer " - version : $vers New"
         printer " - VersionCode : $versc New"
+        printer " - update Pada : $waktuIn"
         axprop $cek_update update_fox -s "done"
         update_fox="done"
         axprop $cek_update versUpdate -s "$beta_vers"
@@ -283,9 +290,9 @@ case $1 in
      -info | -i )
       printer " ┌[📦] $name | INFORMATION"
       echo " ├────────────────────────────"
-      printer " ├[📄] Version : $vers | $versc"
+      printer " ├[📄] Version : ${vers:-null} | ${versc:-null}"
       printer " ├[🪪] ID : $AXERONID"
-      printer " ├[🆕] Update : 03-15"
+      printer " ├[🆕] New update : $waktuIn"
       printer " └┬[🎮] Game: ${nameGame:-null}"
       printer "  ├[📁] Package: ${packageRun:-null}"
       if pgrep -f ai-system >/dev/null 2>&1; then
@@ -311,8 +318,7 @@ if [ "$cek_beta_akses" != true ]; then
     if [ $foxUpdate = false ]; then
     echo "Waktu Update : update terbaru sudah ada"
     else
-    echo "Waktu Update : tunggu M
-    maintenance selesaii"
+    echo "Waktu Update : tunggu maintenance selesaii"
     fi
     rm "$bin_cash_fox/response"
     echo
