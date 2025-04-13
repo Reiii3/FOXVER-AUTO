@@ -265,6 +265,8 @@ echo
      vers=$versUpdate
      axprop $prop versc -s $verscUpdate
      versc=$verscUpdate
+     axprop $cek_update waktuIn -s $time
+     waktuIn=$time
   else
     echo "  system masih dalam masa pemeliharaan 
     jadi silahkan tunggu update selesai"
