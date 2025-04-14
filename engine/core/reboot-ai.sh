@@ -10,7 +10,7 @@ local engine="$bin_2/engine"
 local war="[?]"
 local in="[!]"
 local pr="[-]"
-local su="[✔]"
+local su="[√]"
 
   status=$(pgrep -f ai-system)
   if [ -n $status ]; then
