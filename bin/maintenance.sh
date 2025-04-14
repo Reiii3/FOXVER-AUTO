@@ -8,7 +8,7 @@ local engine="$bin_2/engine"
 local war="[?]"
 local in="[!]"
 local pr="[-]"
-local su="[✔]"
+local su="[√]"
 
 . $engine
 . $prop
@@ -19,7 +19,7 @@ echo "Minetenance Tess"
 
 echo "      =========================="
 sleep 0.02
-echo "         Maintenance V1.1 XIO"
+echo "         Maintenance V1.1.XIO"
 sleep 0.02
 echo "      =========================="
 sleep 0.03
