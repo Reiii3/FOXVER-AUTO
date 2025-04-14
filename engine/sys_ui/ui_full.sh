@@ -18,7 +18,7 @@ local su="[√]"
 . $function
 
 echo "======================================="
-printer "  FOXVER AI Auto Render & Performance"
+printer "  Foxver Modules $vers | $versc"
 echo "======================================="
 printer "┌$in To view module information do:
 └┬$pr ax fox -i
