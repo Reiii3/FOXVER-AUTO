@@ -9,7 +9,7 @@ local cek_oppo=$(echo "$tes_up" | grep -q "cmd settings put global high_performa
 local war="[?]"
 local in="[!]"
 local pr="[-]"
-local su="[✔]"
+local su="[√]"  
 
 . $prop
 . $engine
