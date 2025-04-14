@@ -20,13 +20,13 @@ local su="[√]"
 echo "======================================="
 printer "  Foxver Modules $vers | $versc"
 echo "======================================="
-  printer "┌$in To view module information do:
+  printer " ┌$in To view module information do:
   └┬$pr ax fox -i
    └$pr ax fox -info"
-  printer "┌$in For how to install, execute it:
+  printer " ┌$in For how to install, execute it:
   └┬$pr ax fox -c
    └$pr ax fox -changelogs"
-   printer "┌$pr To reboot the AI system, execute it:
+   printer " ┌$pr To reboot the AI system, execute it:
   └┬$pr ax fox -u
    └$pr ax fox -upr"
 echo
