@@ -48,7 +48,6 @@ if [ ! "$status" ]; then
     nohup sh /data/local/tmp/ai-system >/dev/null 2>&1 &
     printer "$in Instalation Program Succesfuly"
 fi
-  
 sleep 2
 status=$(pgrep -f ai-system)
 if [ -z $pid_ins ]; then
