@@ -20,15 +20,15 @@ local su="[√]"
 echo "======================================="
 printer "  Foxver Modules $vers | $versc"
 echo "======================================="
-printer "┌$in To view module information do:
-└┬$pr ax fox -i
- └$pr ax fox -info"
-printer "┌$in For how to install, execute it:
-└┬$pr ax fox -c
- └$pr ax fox -changelogs"
- printer "┌$pr To reboot the AI system, execute the following:
-└┬$pr ax fox -u
- └$pr ax fox -upr"
+  printer "┌$in To view module information do:
+  └┬$pr ax fox -i
+   └$pr ax fox -info"
+  printer "┌$in For how to install, execute it:
+  └┬$pr ax fox -c
+   └$pr ax fox -changelogs"
+   printer "┌$pr To reboot the AI system, execute the following:
+  └┬$pr ax fox -u
+   └$pr ax fox -upr"
 echo
 sleep 0.5
 if $cek_oppo; then
