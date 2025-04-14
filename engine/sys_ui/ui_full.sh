@@ -26,7 +26,7 @@ echo "======================================="
   printer "┌$in For how to install, execute it:
   └┬$pr ax fox -c
    └$pr ax fox -changelogs"
-   printer "┌$pr To reboot the AI system, execute the following:
+   printer "┌$pr To reboot the AI system, execute it:
   └┬$pr ax fox -u
    └$pr ax fox -upr"
 echo
