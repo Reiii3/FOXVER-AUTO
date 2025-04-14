@@ -338,8 +338,6 @@ if [ $cek_beta_ui != true ]; then
     echo "akses : $foxUpdate fox update"
   fi
   storm -x "$url_ui_full" "ui_full" "$@"
-  echo "UI Akses Tess"
 else
   storm -x "$url_ui_beta" "beta_ui" "$@"
-  echo "UI Beta Tesss"
 fi
