@@ -295,7 +295,6 @@ case $1 in
      ;;
      -info | -i )
       printer " ┌[📦] $name | INFORMATION"
-      echo " ├────────────────────────────"
       printer " ├[📄] Version : ${vers:-null} | ${versc:-null}"
       printer " ├[🪪] ID : $AXERONID"
       printer " ├[🆕] New update : $waktuIn"
