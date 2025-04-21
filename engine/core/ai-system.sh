@@ -14,6 +14,7 @@ ai_start() {
     setprop debug.hwui.renderer skiavk
     setprop debug.hwui.shadow.renderer skiavk
     cmd thermalservice override-status 0
+    device_config put game_overlay ${packageRun} mode=2,skiavk=1,downscaleFactor=0.7,fps=60:mode=3,vulkan=0,downscaleFactor=0.9,fps=60
     sleep 0.5
 }
 
