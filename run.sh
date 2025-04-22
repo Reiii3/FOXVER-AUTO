@@ -213,9 +213,12 @@ local cek_beta_ui=$(echo "$cek_ui" | grep -q "$AXERONID" && echo true || echo fa
 local cek_beta_akses=$(echo "$cek_akses" | grep -q "$AXERONID" && echo true || echo false)
 
 if [ -n "$1" ] && [ "$1" == "-g" ]; then
-   pkg=$(pm list packages | grep -i "$2" | sed 's/package://g')
+  pkg_2="$packageRun"
+  device_config delete game_overlay ${packageRun}
+  pkg=$(pm list packages | grep -i "$2" | sed 's/package://g')
   axprop $engine  packageRun -s "$pkg"
   packageRun="$pkg"
+  device_config put game_overlay ${packageRun} mode=2,skiavk=1,downscaleFactor=0.7,fps=60:mode=3,vulkan=0,downscaleFactor=0.9,fps=60
   # Mengubah Package Ke Name APK
   name_g=$(pkglist -L "$packageRun")
   axprop $prop nameGame -s "$name_g"
