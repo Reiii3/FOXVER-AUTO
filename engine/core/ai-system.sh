@@ -35,6 +35,7 @@ ai_end() {
     setprop debug.hwui.shadow.renderer opengl
     cmd thermalservice override-status 1
     device_config delete game_overlay ${packageRun}
+    am force-stop "$packageRun"
     sleep 1
 }
 
