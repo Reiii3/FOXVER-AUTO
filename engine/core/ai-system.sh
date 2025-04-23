@@ -14,7 +14,6 @@ ai_start() {
     setprop debug.hwui.renderer skiavk
     setprop debug.hwui.shadow.renderer skiavk
     cmd thermalservice override-status 0
-    device_config put game_overlay ${packageRun} mode=2,skiavk=1,downscaleFactor=0.7,fps=60:mode=3,vulkan=0,downscaleFactor=0.9,fps=60
     sleep 0.5
 }
 
@@ -34,7 +33,6 @@ ai_end() {
     setprop debug.hwui.renderer opengl
     setprop debug.hwui.shadow.renderer opengl
     cmd thermalservice override-status 1
-    device_config delete game_overlay ${packageRun}
     am force-stop "$packageRun"
     sleep 1
 }
