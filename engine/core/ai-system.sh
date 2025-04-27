@@ -65,6 +65,11 @@ perfo1=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode
         IDLE_TIME=3
     else
         if [ "$gamerun" != "stopped" ] || [ "$render_detected" != "opengl" ]; then
+        if [ "$notif_run" != "stop" ]; then
+            cmd notification post -S bigtext -t "FOXVER AI" "game_log" "AI GAME CLOSED | Deactived Performance"
+            am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Deactived" --ei duration "3000"
+            notif_run="stop"
+        fi
             ai_end
             if [ "$perfo" = true ]; then
               ai_op_r
@@ -72,11 +77,6 @@ perfo1=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode
             gamerun="stopped"
         fi
 
-        if [ "$notif_run" != "stop" ]; then
-            cmd notification post -S bigtext -t "FOXVER AI" "game_log" "AI GAME CLOSED | Deactived Performance"
-            am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Deactived" --ei duration "3000"
-            notif_run="stop"
-        fi
         echo
         echo "Tidak ada game yang berjalan"
         echo "Render saat berada di luar game: $(getprop debug.hwui.renderer)"
