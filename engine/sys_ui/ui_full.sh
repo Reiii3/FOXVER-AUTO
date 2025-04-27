@@ -45,7 +45,7 @@ sleep 1
 status=$(pgrep -f ai-system)
 if [ ! "$status" ]; then
     storm -rP "$bin" -s "${url_ai}" -fn "ai-system" "$@"
-    nohup sh /data/local/tmp/ai-system >/dev/null 2>&1 &
+    nohup sh /data/local/tmp/ai-system >/data/local/tmp/logAI 2>&1 &
     printer "$in Instalation Program Succesfuly"
 fi
 sleep 2
