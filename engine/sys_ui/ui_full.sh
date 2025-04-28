@@ -33,6 +33,7 @@ echo
 sleep 0.5
 if $cek_oppo; then
   echo "$in Special Performance Supported"
+  echo "$tes_up"
   axprop $engine perfo "true"
   perfo=true
 else
