@@ -6,15 +6,15 @@ local bin_cash="/data/local/tmp/axeron_cash"
 local bin_cash_fox="/data/local/tmp/axeron_cash/FOX"
 local bin_cek_update="$bin_cash/zupdate_cek"
 local bin_dev="$bin/debug/control"
-local url_ui_full="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/ui_full.sh"
-local url_ui_beta="https://reiii3.github.io/FOXVER-AUTO/engine/sys_ui/beta_ui.sh"
-local url_engine="https://reiii3.github.io/FOXVER-AUTO/engine/core-engine.sh"
-local url_prop="https://reiii3.github.io/FOXVER-AUTO/bin/prop.sh"
+local url_ui_full="https://raw.githubusercontent.com/Reiii3/FOXVER-AUTO/engine/sys_ui/ui_full.sh"
+local url_ui_beta="https://raw.githubusercontent.com/Reiii3/FOXVER-AUTO/engine/sys_ui/beta_ui.sh"
+local url_engine="https://raw.githubusercontent.com/Reiii3/FOXVER-AUTO/engine/core-engine.sh"
+local url_prop="https://raw.githubusercontent.com/Reiii3/FOXVER-AUTO/bin/prop.sh"
 local url_fun="https://reiii3.github.io/Center-Module/core-system/function.sh"
-local url_change="https://reiii3.github.io/FOXVER-AUTO/bin/changelogs.sh"
-local url_maintenance="https://reiii3.github.io/FOXVER-AUTO/bin/maintenance.sh"
-local url_main="https://reiii3.github.io/FOXVER-AUTO/engine/engine_main.sh"
-local url_ai_reboot="https://reiii3.github.io/FOXVER-AUTO/engine/core/reboot-ai.sh"
+local url_change="https://raw.githubusercontent.com/Reiii3/FOXVER-AUTO/bin/changelogs.sh"
+local url_maintenance="https://raw.githubusercontent.com/Reiii3/FOXVER-AUTO/bin/maintenance.sh"
+local url_main="https://raw.githubusercontent.com/Reiii3/FOXVER-AUTO/engine/engine_main.sh"
+local url_ai_reboot="https://raw.githubusercontent.com/Reiii3/FOXVER-AUTO/engine/core/reboot-ai.sh"
 local url_detect="https://reiii3.github.io/Center-Module/update/fox-update.sh"
 local function="$bin_2/function"
 local detected="$bin/detec"
@@ -204,10 +204,10 @@ esac
 
 # // Ini di gunakan untuk developer atau donatur yang menggunakan beta version
 if [ $ui_mod = false ]; then
-  local cek_ui=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_ui.txt")
+  local cek_ui=$(storm "https://raw.githubusercontent.com/Reiii3/FOXVER-AUTO/engine/user/beta_ui.txt")
 fi
 if [ $dev_mode = true ]; then
-  local cek_akses=$(storm "https://reiii3.github.io/FOXVER-AUTO/engine/user/beta_akses.txt")
+  local cek_akses=$(storm "https://raw.githubusercontent.com/Reiii3/FOXVER-AUTO/engine/user/beta_akses.txt")
 fi
 local cek_beta_ui=$(echo "$cek_ui" | grep -q "$AXERONID" && echo true || echo false)
 local cek_beta_akses=$(echo "$cek_akses" | grep -q "$AXERONID" && echo true || echo false)
